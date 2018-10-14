@@ -1,0 +1,15 @@
+<div>
+  <label>Crear Actividad:
+    <p></p>
+    <p>Titulo:</p>
+    <input [(ngModel)] = "tituloAdd"/><br>
+    <p>Descripcion:</p>
+    <input [(ngModel)] = "descripcionAdd"/><br>
+    <p>Tags:</p>
+    <input [(ngModel)] = "tagsAdd"/><br>
+  </label>
+</div>
+
+<button (click)="crearActividad()">Crear</button><br>
+
+<button (click)="goBack()">go back</button>
