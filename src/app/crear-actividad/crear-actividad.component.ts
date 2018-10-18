@@ -4,6 +4,7 @@ import { Location } from '@angular/common';
  
 import { Actividad } from '../actividad';
 import { FrontendService }  from '../frontend.service';
+import { JsonActividad } from '../jsonActividad';
 
 @Component({
   selector: 'app-crear-actividad',
@@ -15,14 +16,26 @@ export class CrearActividadComponent implements OnInit {
   tituloAdd: string;
   descripcionAdd: string;
   tagsAdd: string[];
+  estrellas: number = 0;
+  propietario: "David";
+  status: string;
+  jsonActividad: JsonActividad;
 
   constructor(
     private route: ActivatedRoute,
-    private heroService: FrontendService,
+    private frontendService: FrontendService,
     private location: Location
   ) {}
 
   ngOnInit() {
+  }
+
+  //crear actividad
+  postActivity(): void{
+    this.actividad = {titulo:this.tituloAdd, descripcion:this.descripcionAdd, estrellas:0, propietario: "David", tags:this.tagsAdd}
+    this.frontendService.postActividad(this.actividad).subscribe(() => this.goBack());
+    //this.jsonActividad: JsonActividad
+    //res => { this.jsonActividad= res.json();}
   }
 
 

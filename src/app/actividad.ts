@@ -1,12 +1,12 @@
 import { ObjetoDeNickYEstado } from "./objetoDeNickYEstado";
 
 export class Actividad {
-    id: number;
+    //_id: number;
+    //__v: number;
     titulo: string;
     descripcion: string;
-    estrellas:number[];
+    estrellas:number;
     tags: string[];
     propietario: string;
-    clientes: ObjetoDeNickYEstado[];
-
+    //clientes: ObjetoDeNickYEstado[];
 }

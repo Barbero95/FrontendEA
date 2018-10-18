@@ -5,6 +5,8 @@ import { Observable, of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
  
 import { MessageService } from './message.service';
+import { Actividad } from './actividad';
+import { JsonActividad } from './jsonActividad';
  
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -12,20 +14,46 @@ const httpOptions = {
  
 @Injectable({ providedIn: 'root' })
 export class FrontendService {
-  //modificar por la url principal del backend
-  private heroesUrl = 'api/';  // URL to web api
+  // URL to web api
+  private usuariosUrl: string = 'http://localhost:3000/api/v1/users';
+  private actividadesUrl: string = 'http://localhost:3000/api/v1/actividades';
  
   constructor(
     private http: HttpClient,
     private messageService: MessageService) { }
  
-  //aqui van las funciones get
-  
+  /* GET: De todos los usuarios, de un usuario, de todas las actividades o de una actividad */
+  //get de una actividad en concreto
+  getActividad(titulo: string): Observable<Actividad> {
+    const url = `${this.actividadesUrl}/${titulo}`;
+    return this.http.get<Actividad>(url).pipe(
+      tap(_ => this.log(`El titulo=${titulo}`)),
+      catchError(this.handleError<Actividad>(`error`))
+    );
+  }
+
+
+  /*POST: Crear usuario o crear actividad*/
   //////// Save methods //////////
+  //crear actividad
+  postActividad (actividad: Actividad): Observable<Actividad> {
+    return this.http.post<Actividad>(this.actividadesUrl, actividad, httpOptions).pipe(
+      tap((jsonActividad: JsonActividad) => this.log(`added activity`)),
+      catchError(this.handleError<Actividad>('addActivity'))
+    );
+  }
  
- 
-  /** PUT: update the hero on the server */
- 
+  /** PUT: update the user on the server */
+
+  /** PUT: update the activity on the server */
+  //modificar una actividad
+  updateActividad (actividad: Actividad): Observable<any> {
+    const url = `${this.actividadesUrl}/${actividad.titulo}`;
+    return this.http.put(url, actividad, httpOptions).pipe(
+      tap(_ => this.log(`updated de actividad=${actividad.titulo}`)),
+      catchError(this.handleError<any>('updateActivity'))
+    );
+  }
 
   //No borrar
   private handleError<T> (operation = 'operation', result?: T) {
