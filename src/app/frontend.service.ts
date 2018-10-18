@@ -6,7 +6,6 @@ import { catchError, map, tap } from 'rxjs/operators';
  
 import { MessageService } from './message.service';
 import { Actividad } from './actividad';
-import { JsonActividad } from './jsonActividad';
  
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -38,7 +37,7 @@ export class FrontendService {
   //crear actividad
   postActividad (actividad: Actividad): Observable<Actividad> {
     return this.http.post<Actividad>(this.actividadesUrl, actividad, httpOptions).pipe(
-      tap((jsonActividad: JsonActividad) => this.log(`added activity`)),
+      tap((actividad: Actividad) => this.log(`added activity`)),
       catchError(this.handleError<Actividad>('addActivity'))
     );
   }
