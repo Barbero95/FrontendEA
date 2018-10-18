@@ -15,8 +15,8 @@ const httpOptions = {
 @Injectable({ providedIn: 'root' })
 export class FrontendService {
   // URL to web api
-  private usuariosUrl: string = 'http://localhost:3000/api/v1/users';
-  private actividadesUrl: string = 'http://localhost:3000/api/v1/actividades';
+  private usuariosUrl: string = 'http://localhost:3000/users';
+  private actividadesUrl: string = 'http://localhost:3000/actividades';
  
   constructor(
     private http: HttpClient,
