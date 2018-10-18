@@ -13,6 +13,7 @@ import { EditarPerfilComponent } from './editar-perfil/editar-perfil.component';
 import { VerPerfilComponent } from './ver-perfil/ver-perfil.component';
 import { MessagesComponent } from './messages/messages.component';
 import { MenuPrincipalComponent } from './menu-principal/menu-principal.component';
+import { CatalogoComponent } from './catalogo/catalogo.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { MenuPrincipalComponent } from './menu-principal/menu-principal.componen
     EditarPerfilComponent,
     VerPerfilComponent,
     MessagesComponent,
+    CatalogoComponent,
     MenuPrincipalComponent
   ],
   imports: [

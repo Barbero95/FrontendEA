@@ -30,7 +30,7 @@ export class CrearActividadComponent implements OnInit {
 
   //crear actividad
   postActivity(): void{
-    this.actividad = {titulo:this.tituloAdd, descripcion:this.descripcionAdd, estrellas:0, propietario: "David", tags:this.tagsAdd}
+    //this.actividad = {titulo:this.tituloAdd, descripcion:this.descripcionAdd, estrellas:0, propietario: "David", tags:this.tagsAdd}
     this.frontendService.postActividad(this.actividad).subscribe(() => this.goBack());
     //res => { this.jsonActividad = res.json();}
   }
