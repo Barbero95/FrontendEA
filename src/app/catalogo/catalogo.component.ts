@@ -22,11 +22,11 @@ export class CatalogoComponent implements OnInit {
 
   ngOnInit(): void{
     this.actividad = {  
-      _id:2,
-      __v:1,
+     // _id:2,
+     // __v:1,
       titulo:"asd",
       descripcion:"asd",
-      estrellas:[2],
+      estrellas:2,
       tags:["asd"],
       propietario:"asd",
       clientes:[this.linkNickEstado]
