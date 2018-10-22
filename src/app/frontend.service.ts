@@ -31,6 +31,15 @@ export class FrontendService {
     );
   }
 
+  //get de todas las actividades de un usuario
+  getActividadesPropietario(propietario: string): Observable<Actividad> {
+    const url = `${this.actividadesUrl}/${propietario}`;
+    return this.http.get<Actividad>(url).pipe(
+      tap(_ => this.log(`El propietario=${propietario}`)),
+      catchError(this.handleError<Actividad>(`error`))
+    );
+  }
+
 
   /*POST: Crear usuario o crear actividad*/
   //////// Save methods //////////

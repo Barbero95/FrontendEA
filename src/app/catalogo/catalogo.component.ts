@@ -30,10 +30,16 @@ export class CatalogoComponent implements OnInit {
       tags:["asd"],
       propietario:"asd",
       clientes:[this.linkNickEstado]
+      
  }
 
 }
-
+  //Envio usuario para recibir sus actividades
+  sendUser(): void{
+    this.actividad = {titulo:null, descripcion:null, estrellas:0, propietario: "David", tags:null,clientes:[]}
+    this.frontendService.getActividadesPropietario(this.actividad.propietario).subscribe(actividad => this.actividad = actividad);
+    //res => { this.jsonActividad = res.json();}
+  }
 goBack(): void {
   this.location.back();
 }
