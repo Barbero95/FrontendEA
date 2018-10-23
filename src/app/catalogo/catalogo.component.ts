@@ -21,24 +21,14 @@ export class CatalogoComponent implements OnInit {
     private location: Location ) { }
 
   ngOnInit(): void{
-    this.actividad = {  
-     // _id:2,
-     // __v:1,
-      titulo:"asd",
-      descripcion:"asd",
-      estrellas:2,
-      tags:["asd"],
-      propietario:"asd",
-      clientes:[this.linkNickEstado]
-      
- }
+    
 
 }
   //Envio usuario para recibir sus actividades
   sendUser(): void{
-    this.actividad = {titulo:null, descripcion:null, estrellas:0, propietario: "David", tags:null,clientes:[]}
-    this.frontendService.getActividadesPropietario(this.actividad.propietario).subscribe(actividad => this.actividad = actividad);
-    //res => { this.jsonActividad = res.json();}
+    this.actividad = {titulo:null, descripcion:null, estrellas:0, propietario: "Arnau", tags:null,clientes:[]}
+    this.frontendService.getActividadesPropietario(this.actividad).subscribe(actividad => this.actividad = actividad);
+    
   }
 goBack(): void {
   this.location.back();
