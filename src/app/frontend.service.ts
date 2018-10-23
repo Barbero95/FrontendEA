@@ -34,10 +34,12 @@ export class FrontendService {
   //get de todas las actividades de un usuario
   getActividadesPropietario(actividad: Actividad): Observable<Actividad> {
     const url = `${this.actividadesUrl}/propietario/${actividad.propietario}`;
-    return this.http.get<Actividad>(url).pipe(
-      tap(_ => this.log(`El propietario=${actividad.propietario}`)),
-      catchError(this.handleError<Actividad>(`error`))
-    );
+    return this.http.get<Actividad>(url)
+    //.pipe(
+    //  tap(_ => this.log(`El propietario=${actividad.propietario}`)),
+     // catchError(this.handleError<Actividad>(`error`))
+ //   );
+ ;
   }
 
 
