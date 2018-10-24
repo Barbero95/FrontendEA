@@ -6,6 +6,7 @@ import { catchError, map, tap } from 'rxjs/operators';
  
 import { MessageService } from './message.service';
 import { Actividad } from './actividad';
+import { Usuario } from './usuario';
  
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -30,11 +31,18 @@ export class FrontendService {
       catchError(this.handleError<Actividad>(`error`))
     );
   }
+  getUsuario(username: string): Observable<Usuario> {
+    const url = `${this.usuariosUrl}/${username}`;
+    return this.http.get<Usuario>(url).pipe(
+      tap(_ => this.log(`El Nick es ${username}`)),
+      catchError(this.handleError<Usuario>(`error`))
+    );
+  }
 
   //get de todas las actividades de un usuario
-  getActividadesPropietario(actividad: Actividad): Observable<Actividad> {
+  getActividadesPropietario(actividad: Actividad): Observable<Actividad[]> {
     const url = `${this.actividadesUrl}/propietario/${actividad.propietario}`;
-    return this.http.get<Actividad>(url)
+    return this.http.get<Actividad[]>(url)
     //.pipe(
     //  tap(_ => this.log(`El propietario=${actividad.propietario}`)),
      // catchError(this.handleError<Actividad>(`error`))

@@ -1,3 +1,4 @@
+<!--
 <div>
   <label>Crear Actividad:
     <p></p>
@@ -10,4 +11,20 @@
 </div>
 
 <button (click)="sendUser()">Recibir lista de actividades</button><br>
+-->
+<table>
+  <tr *ngFor="let item of lista">
+    <td> {{item.titulo}}</td>
+    <td> {{item.descripcion}}</td>
+  </tr>
+</table>
+
+
+<!--
+<ul>
+  <li *ngFor="let element of listaAct; let i = index">
+    {{i}}. {{element.titulo}}, {{element.descripcion}}
+  </li>
+</ul>
+-->
 <button (click)="goBack()">go back</button>
