@@ -1,5 +1,29 @@
-<p>
-  editar-perfil works!
-</p>
-
-<button (click)="goBack()">go back</button>
+<div>
+  <label>Editar Perfil:
+    <p></p>
+    <table>
+      <tr>
+          <td>Nombre:</td> 
+          <td><input [(ngModel)] = "nombreEdit"/></td>           
+      </tr>
+      <tr>
+        <td>Apellido:</td> 
+        <td><input [(ngModel)] = "apellidoEdit"/></td>           
+      </tr>
+      <tr>
+        <td>email:</td> 
+        <td><input [(ngModel)] = "emailEdit"/></td>           
+      </tr>
+      <tr>
+        <td>password:</td> 
+        <td><input [(ngModel)] = "passwordEdit"/></td>           
+      </tr>
+      <tr>
+        <td>tags:</td> 
+        <td><input [(ngModel)] = "tagsEdit"/></td>           
+      </tr>
+    </table>
+  </label>
+</div>
+<button (click)="goSave()">Save</button>
+<button (click)="goBack()">Cancel</button>

@@ -1,12 +1,29 @@
-<h2>Perfil de {{usuario.nick}}</h2>
+
+<label>Perfil de {{usuario.nick}}
+    <p></p>
+    <table>
+      <tr>
+        <td>Nombre:</td> 
+        <td>{{usuario.nombre}}</td>           
+      </tr>
+      <tr>
+        <td>Apellido:</td> 
+        <td>{{usuario.apellido}}</td>           
+      </tr>
+      <tr>
+        <td>email:</td> 
+        <td>{{usuario.email}}</td>           
+      </tr>
+      <tr>
+        <td>tags:</td> 
+        <td>{{usuario.tags}}</td>           
+      </tr>
+    </table>
+  </label>
+
+<nav>
+    <a routerLink="/editarPerfil">Editar Perfil</a><br>
+</nav>
 
 
-    <div><span>Nombre: </span>{{usuario.nombre}}</div>
-    <div><span>Apellido: </span>{{usuario.apellido}}</div>
-    <div><span>Email: </span>{{usuario.email}}</div>
-    <div><span>UrlImagen: </span>{{usuario.imagen}}</div>
-    
-
-
-
-<button (click)="goBack()">go back</button>
+<!--<button (click)="goBack()">go back</button>-->

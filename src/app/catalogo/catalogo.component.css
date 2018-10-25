@@ -27,3 +27,9 @@ label {
     color: #ccc;
     cursor: auto;
   }
+  table{
+    border-collapse: collapse; /* Los bordes de la tabla se pegarán (mejor aspecto) */
+  }
+  td{
+    border: 1px solid black;
+  }

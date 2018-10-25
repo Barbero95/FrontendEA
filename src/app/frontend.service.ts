@@ -72,6 +72,13 @@ export class FrontendService {
       catchError(this.handleError<any>('updateActivity'))
     );
   }
+  updateUsuario (usuario: Usuario): Observable<any> {
+    const url = `${this.usuariosUrl}/${usuario.nick}`;
+    return this.http.put(url, usuario, httpOptions).pipe(
+      tap(_ => this.log(`updated de usuario=${usuario.nick}`)),
+      catchError(this.handleError<any>('updateActivity'))
+    );
+  }
 
   //No borrar
   private handleError<T> (operation = 'operation', result?: T) {

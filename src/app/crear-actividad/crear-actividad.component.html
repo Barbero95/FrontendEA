@@ -1,15 +1,24 @@
 <div>
   <label>Crear Actividad:
     <p></p>
-    <p>Titulo:</p>
-    <input [(ngModel)] = "tituloAdd"/><br>
-    <p>Descripcion:</p>
-    <input [(ngModel)] = "descripcionAdd"/><br>
-    <p>Tags:</p>
-    <input [(ngModel)] = "tagsAdd"/><br>
+    <table>
+      <tr>
+          <td>Titulo:</td> 
+          <td><input [(ngModel)] = "tituloAdd"/></td>           
+      </tr>
+      <tr>
+        <td>Descripcion:</td> 
+        <td><input [(ngModel)] = "descripcionAdd"/></td>           
+      </tr>
+      <tr>
+        <td>Tags:</td> 
+        <td><input [(ngModel)] = "tagsAdd"/></td>           
+      </tr>
+    </table>
   </label>
 </div>
 
 <button (click)="postActivity()">Crear</button><br>
 
-<button (click)="goBack()">go back</button>
+<!--<button (click)="goBack()">go back</button>-->
+

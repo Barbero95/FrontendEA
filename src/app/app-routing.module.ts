@@ -13,7 +13,7 @@ const routes: Routes = [
   { path: 'crearActividad', component: CrearActividadComponent },
   { path: 'menuPrincipal', component: MenuPrincipalComponent },
   { path: 'catalogo', component: CatalogoComponent },
-  //{ path: 'editarPerfil', component: EditarPerfilComponent },
+  { path: 'editarPerfil', component: EditarPerfilComponent },
   { path: 'perfil', component: VerPerfilComponent }
 ];
  
