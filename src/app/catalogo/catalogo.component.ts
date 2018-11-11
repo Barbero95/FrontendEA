@@ -33,11 +33,13 @@ export class CatalogoComponent implements OnInit {
     //this.frontendService.getActividadesPropietario(this.actividad).subscribe(actividad => this.actividad = actividad);
     
   }
-  modificarActivity():void{
+  modificarActivity(actividad: Actividad):void{
+
     //Debo encontrar la manera de enlazar la actiivdad de la lista elegida con esta otra pantalla
   }
-  eliminarAcitivity():void{
-//Debo encontrar la manera de enlazar la actiivdad de la lista elegida con esta otra pantalla
+  eliminarActivity(actividad: Actividad):void{
+    this.frontendService.deleteActividad(actividad).subscribe();
+    
   }
 
 goBack(): void {

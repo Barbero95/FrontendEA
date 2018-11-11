@@ -80,6 +80,18 @@ export class FrontendService {
     );
   }
 
+
+  /** DELETE: Delete an activity from an user*/
+  //borrar una actividad
+  deleteActividad (actividad: Actividad): Observable<any> {
+    const url = `${this.actividadesUrl}/${actividad.propietario}/${actividad.titulo}`;
+    return this.http.delete(url,httpOptions).pipe(
+      tap(_ => this.log(`borrado de actividad=${actividad.titulo}`)),
+      catchError(this.handleError<any>('DeleteActivity'))
+    );
+  }
+
+
   //No borrar
   private handleError<T> (operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
