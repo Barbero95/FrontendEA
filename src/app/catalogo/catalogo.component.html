@@ -12,13 +12,18 @@
 
 <button (click)="sendUser()">Recibir lista de actividades</button><br>
 -->
-<table> Actividades
-  <tr *ngFor="let item of lista">
-    <td> {{item.titulo}}</td>
-    <td> {{item.descripcion}}</td>
-    <td> {{item.tags}}</td>
-  </tr>
-</table>
+<div id="header">
+  <label>Actividades
+    <p></p>
+    <table>
+      <tr *ngFor="let item of lista">
+        <td> {{item.titulo}}</td>
+        <td> {{item.descripcion}}</td>
+        <td> {{item.tags}}</td>
+      </tr>
+    </table>
+  </label>
+</div>
 
 
 <!--

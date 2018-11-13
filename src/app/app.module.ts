@@ -14,6 +14,8 @@ import { VerPerfilComponent } from './ver-perfil/ver-perfil.component';
 import { MessagesComponent } from './messages/messages.component';
 import { MenuPrincipalComponent } from './menu-principal/menu-principal.component';
 import { CatalogoComponent } from './catalogo/catalogo.component';
+import { ImageComponent } from './image/image.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,9 @@ import { CatalogoComponent } from './catalogo/catalogo.component';
     VerPerfilComponent,
     MessagesComponent,
     CatalogoComponent,
-    MenuPrincipalComponent
+    MenuPrincipalComponent,
+    ImageComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

@@ -1,4 +1,4 @@
-<div>
+<div id="header">
   <label>Crear Actividad:
     <p></p>
     <table>
@@ -12,13 +12,16 @@
       </tr>
       <tr>
         <td>Tags:</td> 
-        <td><input [(ngModel)] = "tagsAdd"/></td>           
+        
+            <input matInput [(ngModel)]="tagsAdd" placeholder="What's your name?">
+        
+        <!--<td><input [(ngModel)] = "tagsAdd"/></td>   -->        
       </tr>
     </table>
+    <button (click)="postActivity()">Crear</button><br>
   </label>
+
+  
 </div>
-
-<button (click)="postActivity()">Crear</button><br>
-
 <!--<button (click)="goBack()">go back</button>-->
 

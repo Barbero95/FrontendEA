@@ -7,6 +7,7 @@ import { catchError, map, tap } from 'rxjs/operators';
 import { MessageService } from './message.service';
 import { Actividad } from './actividad';
 import { Usuario } from './usuario';
+import { Foto } from './foto';
  
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -17,6 +18,7 @@ export class FrontendService {
   // URL to web api
   private usuariosUrl: string = 'http://localhost:3000/users';
   private actividadesUrl: string = 'http://localhost:3000/actividades';
+  private imageUrl: string = 'http://localhost:3000/imgs';
  
   constructor(
     private http: HttpClient,
@@ -36,6 +38,13 @@ export class FrontendService {
     return this.http.get<Usuario>(url).pipe(
       tap(_ => this.log(`El Nick es ${username}`)),
       catchError(this.handleError<Usuario>(`error`))
+    );
+  }
+  getAvatar(id: string): Observable<File> {
+    const url = `${this.imageUrl}/${id}`;
+    return this.http.get<File>(url).pipe(
+      tap(_ => this.log(`El id de la foto es ${id}`)),
+      catchError(this.handleError<File>(`error`))
     );
   }
 

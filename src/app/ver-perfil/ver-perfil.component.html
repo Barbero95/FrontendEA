@@ -1,29 +1,30 @@
 
-<label>Perfil de {{usuario.nick}}
-    <p></p>
-    <table>
-      <tr>
-        <td>Nombre:</td> 
-        <td>{{usuario.nombre}}</td>           
-      </tr>
-      <tr>
-        <td>Apellido:</td> 
-        <td>{{usuario.apellido}}</td>           
-      </tr>
-      <tr>
-        <td>email:</td> 
-        <td>{{usuario.email}}</td>           
-      </tr>
-      <tr>
-        <td>tags:</td> 
-        <td>{{usuario.tags}}</td>           
-      </tr>
-    </table>
-  </label>
+<div id="header">
+  <label>Perfil de {{usuario.nick}}
+      <p></p>
+      <table>
+        <tr>
+          <td>Nombre:</td> 
+          <td>{{usuario.nombre}}</td>           
+        </tr>
+        <tr>
+          <td>Apellido:</td> 
+          <td>{{usuario.apellido}}</td>           
+        </tr>
+        <tr>
+          <td>email:</td> 
+          <td>{{usuario.email}}</td>           
+        </tr>
+        <tr>
+          <td>tags:</td> 
+          <td>{{usuario.tags}}</td>           
+        </tr>
+      </table>
+    </label>
 
-<nav>
-    <a routerLink="/editarPerfil">Editar Perfil</a><br>
-</nav>
-
+  <nav>
+      <a routerLink="/editarPerfil">Editar Perfil</a><br>
+  </nav>
+</div>
 
 <!--<button (click)="goBack()">go back</button>-->

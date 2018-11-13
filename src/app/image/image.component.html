@@ -1,0 +1,15 @@
+<div id="header">
+  <p>
+    image works!
+  </p>
+  <input type="file" (change)="onFileSelected($event)">
+  <button type="button" (click)="onUpload()">Subir</button><br>
+
+  
+  <img ng-src= "{{imagePath}}" >
+  <!--
+    <button type="button" (click)="goGet">Get</button><br>
+  <img src="../fotos/pitufo.png">
+  -->
+  
+</div>
