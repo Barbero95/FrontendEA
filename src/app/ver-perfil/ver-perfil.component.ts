@@ -12,6 +12,7 @@ import { Usuario } from '../usuario';
 export class VerPerfilComponent implements OnInit {
 
   usuario: Usuario;
+  imagePath: string = "../../fotosproyectoea/pitufo.png";
   
   constructor(
     private route: ActivatedRoute,
