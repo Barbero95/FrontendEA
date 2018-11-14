@@ -16,9 +16,10 @@ export class CrearActividadComponent implements OnInit {
   actividad: Actividad;
   tituloAdd: string;
   descripcionAdd: string;
-  tagsAdd: string[];
+  tagsAdd: string[] = [];
+  variable: string = "";
   estrellas: number = 0;
-  propietario: "time4time";
+  propietario = "time4time";
   obj: ObjetoDeNickYEstado;
   loc: UbicacionGPS;
   loc2: number[];
@@ -41,6 +42,11 @@ export class CrearActividadComponent implements OnInit {
     this.actividad = {_id:0,__v:0,titulo:this.tituloAdd, descripcion:this.descripcionAdd, estrellas:0, propietario: "time4time", tags:this.tagsAdd,clientes:[],ubicacion:"Barcelona", location: this.loc2};
     this.frontendService.postActividad(this.actividad).subscribe(() => this.goBack());
     //res => { this.jsonActividad = res.json();}
+  }
+
+  addTag(): void {
+    this.tagsAdd.push(this.variable);
+    this.variable = "";
   }
 
 

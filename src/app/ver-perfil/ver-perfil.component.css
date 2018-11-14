@@ -50,6 +50,21 @@ label {
   table{
     border-collapse: collapse; /* Los bordes de la tabla se pegarán (mejor aspecto) */
   }
+  /*
   td{
     border: 1px solid black;
+  }
+  */
+  table {
+    width: 100%;
+  }
+
+  .mat-form-field {
+      font-size: 14px;
+      width: 100%;
+  }
+
+  td,
+  th {
+      width: 25%;
   }

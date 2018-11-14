@@ -4,24 +4,35 @@
     <table>
       <tr>
           <td>Nombre:</td> 
-          <td><input [(ngModel)] = "nombreEdit"/></td>           
+          <td><input [(ngModel)] = "usuario.nombre"/></td>           
       </tr>
       <tr>
         <td>Apellido:</td> 
-        <td><input [(ngModel)] = "apellidoEdit"/></td>           
+        <td><input [(ngModel)] = "usuario.apellido"/></td>           
       </tr>
       <tr>
         <td>email:</td> 
-        <td><input [(ngModel)] = "emailEdit"/></td>           
+        <td><input [(ngModel)] = "usuario.email"/></td>           
       </tr>
       <tr>
         <td>password:</td> 
-        <td><input [(ngModel)] = "passwordEdit"/></td>           
+        <td><input [(ngModel)] = "usuario.password"/></td>           
       </tr>
       <tr>
-        <td>tags:</td> 
-        <td><input [(ngModel)] = "tagsEdit"/></td>           
-      </tr>
+          <td>Tags:</td>
+          <td>
+            <input [(ngModel)] = "variable"/>
+          </td>
+          <td><button (click)="addTag()">Añadir</button></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>Tags añadidos: 
+            <tr *ngFor="let item of tagsEdit">
+              <td>- {{item}}</td>
+            </tr>
+          </td>
+        </tr>
     </table>
   </label>
 </div>
