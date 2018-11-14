@@ -72,8 +72,8 @@ export class FrontendService {
 
   /** PUT: update the activity on the server */
   //modificar una actividad
-  updateActividad (actividad: Actividad): Observable<any> {
-    const url = `${this.actividadesUrl}/update`;
+  updateActividad (actividad: Actividad, title: string): Observable<any> {
+    const url = `${this.actividadesUrl}/update/${title}`;
     return this.http.put(url, actividad, httpOptions).pipe(
       tap(_ => this.log(`updated de actividad=${actividad.titulo}`)),
       catchError(this.handleError<any>('updateActivity'))

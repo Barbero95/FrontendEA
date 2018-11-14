@@ -23,7 +23,9 @@ export class CrearActividadComponent implements OnInit {
   obj: ObjetoDeNickYEstado;
   loc: UbicacionGPS;
   loc2: number[];
-  
+
+  //Para alertas
+  alert1: boolean = false;
 
   constructor(
     private route: ActivatedRoute,
@@ -54,8 +56,8 @@ export class CrearActividadComponent implements OnInit {
 
 
   goBack(act): void {
-    if(act==null){
-
+    if(!act){
+      this.alert1 = true;
     }else{
       this.location.back();
     }
