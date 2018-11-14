@@ -19,20 +19,21 @@
         <td><input [(ngModel)] = "usuario.password"/></td>           
       </tr>
       <tr>
-          <td>Tags:</td>
-          <td>
-            <input [(ngModel)] = "variable"/>
-          </td>
-          <td><button (click)="addTag()">Añadir</button></td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>Tags añadidos: 
-            <tr *ngFor="let item of tagsEdit">
-              <td>- {{item}}</td>
-            </tr>
-          </td>
-        </tr>
+        <td>Tags:</td>
+        <td>
+          <input [(ngModel)] = "variable"/>
+        </td>
+        <td><button (click)="addTag()">Añadir</button></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td>Tags añadidos: 
+          <tr *ngFor="let item of usuario.tags">
+            <td> - {{item}}</td>
+          </tr>
+          <button (click)="deleteTag()">Eliminar</button>
+        </td>
+      </tr>
     </table>
   </label>
 </div>

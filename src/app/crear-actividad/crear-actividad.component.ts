@@ -48,6 +48,9 @@ export class CrearActividadComponent implements OnInit {
     this.tagsAdd.push(this.variable);
     this.variable = "";
   }
+  deleteTag(): void {
+    this.tagsAdd.pop();
+  }
 
 
   goBack(): void {

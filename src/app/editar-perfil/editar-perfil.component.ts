@@ -12,10 +12,6 @@ import { Usuario } from '../usuario';
 export class EditarPerfilComponent implements OnInit {
 
   usuario: Usuario;
-  nombreEdit: string;
-  apellidoEdit: string;
-  emailEdit: string;
-  passwordEdit: string;
   tagsEdit: string[] = [];
   variable: string;
   nick: string = "time4time";
@@ -27,7 +23,7 @@ export class EditarPerfilComponent implements OnInit {
     private location: Location) { }
 
   ngOnInit() {
-    this.usuario = {nombre: this.nombreEdit,apellido:this.apellidoEdit,nick:this.nick,email:this.emailEdit,estrellas:0,tags: this.tagsEdit,imagen:"",password:this.passwordEdit,actividadesPropietario:[], actividadesCliente:[],_id:0,__v:0}
+    this.usuario = {nombre:"",apellido:"",nick:this.nick,email:"",estrellas:0,tags: this.tagsEdit,imagen:"",password:"",actividadesPropietario:[], actividadesCliente:[],_id:0,__v:0}
     this.frontendService.getUsuario(this.usuario.nick).subscribe(user => this.usuario = user);
   }
 
@@ -37,8 +33,11 @@ export class EditarPerfilComponent implements OnInit {
   }
 
   addTag(): void {
-    this.tagsEdit.push(this.variable);
+    this.usuario.tags.push(this.variable);
     this.variable = "";
+  }
+  deleteTag(): void {
+    this.usuario.tags.pop();
   }
 
   goBack(): void {
