@@ -14,6 +14,7 @@ import { VerPerfilComponent } from './ver-perfil/ver-perfil.component';
 import { MessagesComponent } from './messages/messages.component';
 import { MenuPrincipalComponent } from './menu-principal/menu-principal.component';
 import { CatalogoComponent } from './catalogo/catalogo.component';
+import { EditarActividadComponent } from './editar-actividad/editar-actividad.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { CatalogoComponent } from './catalogo/catalogo.component';
     VerPerfilComponent,
     MessagesComponent,
     CatalogoComponent,
-    MenuPrincipalComponent
+    MenuPrincipalComponent,
+    EditarActividadComponent
   ],
   imports: [
     BrowserModule,

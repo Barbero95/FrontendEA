@@ -60,13 +60,20 @@ export class FrontendService {
       catchError(this.handleError<Actividad>('addActivity'))
     );
   }
+// Esto sirve para editar catalogo
+   getActividadDePropietario(actividad: Actividad): Observable<Actividad> {
+    const url = `${this.actividadesUrl}/pidiendo/${actividad.propietario}/${actividad.titulo}`;
+    return this.http.get<Actividad>(url).pipe(
+      tap(_ => this.log('')),
+      catchError(this.handleError<Actividad>(`error`)));
+  }
  
   /** PUT: update the user on the server */
 
   /** PUT: update the activity on the server */
   //modificar una actividad
   updateActividad (actividad: Actividad): Observable<any> {
-    const url = `${this.actividadesUrl}/${actividad.titulo}`;
+    const url = `${this.actividadesUrl}/update`;
     return this.http.put(url, actividad, httpOptions).pipe(
       tap(_ => this.log(`updated de actividad=${actividad.titulo}`)),
       catchError(this.handleError<any>('updateActivity'))

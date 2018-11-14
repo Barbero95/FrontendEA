@@ -7,6 +7,7 @@ import { VerPerfilComponent } from './ver-perfil/ver-perfil.component';
 import { EditarPerfilComponent } from './editar-perfil/editar-perfil.component';
 import { MenuPrincipalComponent } from './menu-principal/menu-principal.component';
 import { CatalogoComponent } from './catalogo/catalogo.component';
+import { EditarActividadComponent } from './editar-actividad/editar-actividad.component';
  
 const routes: Routes = [
   { path: '', redirectTo: '/menuPrincipal', pathMatch: 'full' },
@@ -14,7 +15,8 @@ const routes: Routes = [
   { path: 'menuPrincipal', component: MenuPrincipalComponent },
   { path: 'catalogo', component: CatalogoComponent },
   { path: 'editarPerfil', component: EditarPerfilComponent },
-  { path: 'perfil', component: VerPerfilComponent }
+  { path: 'perfil', component: VerPerfilComponent },
+  { path: 'editarActividad/:titulo', component: EditarActividadComponent }
 ];
  
 @NgModule({

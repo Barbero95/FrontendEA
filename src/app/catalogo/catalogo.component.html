@@ -17,8 +17,10 @@
     <td> {{item.titulo}}</td>
     <td> {{item.descripcion}}</td>
     <td> {{item.tags}}</td>
-    <button (click)="modificarActivity(item)">Modificar</button>
-    <button (click)="eliminarActivity(item)">Eliminar</button>
+   <!-- <button (click)="modificarActivity(item)">Modificar</button>-->
+  <button [routerLink]="['/editarActividad',item.titulo]">Editar</button>
+  <button (click)="eliminarActivity(item)">Eliminar</button>
+    
   </tr>
 </table>
 
