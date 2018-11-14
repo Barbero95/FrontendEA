@@ -40,7 +40,7 @@ export class CrearActividadComponent implements OnInit {
   //crear actividad
   postActivity(): void{
     this.actividad = {_id:0,__v:0,titulo:this.tituloAdd, descripcion:this.descripcionAdd, estrellas:0, propietario: "time4time", tags:this.tagsAdd,clientes:[],ubicacion:"Barcelona", location: this.loc2};
-    this.frontendService.postActividad(this.actividad).subscribe(() => this.goBack());
+    this.frontendService.postActividad(this.actividad).subscribe( act => this.goBack(act), err => console.error('Ops: ' + err.message));
     //res => { this.jsonActividad = res.json();}
   }
 
@@ -53,7 +53,11 @@ export class CrearActividadComponent implements OnInit {
   }
 
 
-  goBack(): void {
-    this.location.back();
+  goBack(act): void {
+    if(act==null){
+
+    }else{
+      this.location.back();
+    }
   }
 }

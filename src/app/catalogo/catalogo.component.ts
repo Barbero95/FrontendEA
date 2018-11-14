@@ -38,7 +38,7 @@ export class CatalogoComponent implements OnInit {
     //Debo encontrar la manera de enlazar la actiivdad de la lista elegida con esta otra pantalla
   }
   eliminarActivity(actividad: Actividad):void{
-    this.frontendService.deleteActividad(actividad).subscribe();
+    this.frontendService.deleteActividad(actividad).subscribe(act => this.ngOnInit(), err => console.error('Ops: ' + err.message));
     
   }
 
