@@ -5,6 +5,7 @@ import { Location } from '@angular/common';
 import { Actividad } from '../actividad';
 import { FrontendService }  from '../frontend.service';
 import { ObjetoDeNickYEstado } from '../objetoDeNickYEstado';
+import { UbicacionGPS } from '../ubicacionGPS';
 
 @Component({
   selector: 'app-crear-actividad',
@@ -17,10 +18,11 @@ export class CrearActividadComponent implements OnInit {
   descripcionAdd: string;
   tagsAdd: string[];
   estrellas: number = 0;
-  propietario: "Time4Time";
-  status: string;
+  propietario: "time4time";
   obj: ObjetoDeNickYEstado;
-
+  loc: UbicacionGPS;
+  loc2: number[];
+  
 
   constructor(
     private route: ActivatedRoute,
@@ -29,11 +31,14 @@ export class CrearActividadComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+    this.loc = {tipo: "Point", coordinates: [22,11]}
+    this.obj = {idUser: "11xx11",estado: 0}
+    this.loc2 = [11,22];
   }
 
   //crear actividad
   postActivity(): void{
-    this.actividad = {_id:0,__v:0,titulo:this.tituloAdd, descripcion:this.descripcionAdd, estrellas:0, propietario: "time4time", tags:this.tagsAdd,clientes:[]}
+    this.actividad = {_id:0,__v:0,titulo:this.tituloAdd, descripcion:this.descripcionAdd, estrellas:0, propietario: "time4time", tags:this.tagsAdd,clientes:[],ubicacion:"Barcelona", location: this.loc2};
     this.frontendService.postActividad(this.actividad).subscribe(() => this.goBack());
     //res => { this.jsonActividad = res.json();}
   }

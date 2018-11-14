@@ -1,4 +1,4 @@
 export class ObjetoDeNickYEstado {
-    nick: string;
+    idUser:  string;
     estado: number;
 }
