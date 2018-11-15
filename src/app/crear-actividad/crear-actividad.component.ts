@@ -14,8 +14,8 @@ import { UbicacionGPS } from '../ubicacionGPS';
 })
 export class CrearActividadComponent implements OnInit {
   actividad: Actividad;
-  tituloAdd: string;
-  descripcionAdd: string;
+  tituloAdd: string = "";
+  descripcionAdd: string = "";
   tagsAdd: string[] = [];
   variable: string = "";
   estrellas: number = 0;
@@ -26,6 +26,8 @@ export class CrearActividadComponent implements OnInit {
 
   //Para alertas
   alert1: boolean = false;
+  alert2: boolean = false;
+  alert3: boolean = false;
 
   constructor(
     private route: ActivatedRoute,
@@ -41,8 +43,18 @@ export class CrearActividadComponent implements OnInit {
 
   //crear actividad
   postActivity(): void{
-    this.actividad = {_id:0,__v:0,titulo:this.tituloAdd, descripcion:this.descripcionAdd, estrellas:0, propietario: "time4time", tags:this.tagsAdd,clientes:[],ubicacion:"Barcelona", location: this.loc2};
-    this.frontendService.postActividad(this.actividad).subscribe( act => this.goBack(act), err => console.error('Ops: ' + err.message));
+    if(this.tituloAdd == ""){this.alert2 = true;}else{this.alert2 = false;}
+    if(this.descripcionAdd == ""){this.alert3 = true;}else{this.alert3 = false;}
+    if (this.tituloAdd == "" && this.descripcionAdd ==""){
+      this.alert1 = true;   
+    }else{
+      this.alert1 = false;
+    }
+    if(this.tituloAdd != "" && this.descripcionAdd != ""){
+      this.actividad = {_id:0,__v:0,titulo:this.tituloAdd, descripcion:this.descripcionAdd, estrellas:0, propietario: "time4time", tags:this.tagsAdd,clientes:[],ubicacion:"Barcelona", location: this.loc2};
+      this.frontendService.postActividad(this.actividad).subscribe( act => this.goBack(act), err => console.error('Ops: ' + err.message));
+    }
+    
     //res => { this.jsonActividad = res.json();}
   }
 

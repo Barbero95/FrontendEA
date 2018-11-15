@@ -12,11 +12,10 @@ label {
     padding-left: .4em;
   }
   button {
-    margin-top: 15px;
     font-family: Arial;
     background-color: #eee;
     border: none;
-    padding: 10px 20px;
+    padding: 3px 8px;
     border-radius: 4px;
     cursor: pointer; cursor: hand;
   }
