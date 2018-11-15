@@ -7,6 +7,7 @@ import { FrontendService }  from '../frontend.service';
 import { ObjetoDeNickYEstado } from '../objetoDeNickYEstado';
 import { UbicacionGPS } from '../ubicacionGPS';
 
+
 @Component({
   selector: 'app-crear-actividad',
   templateUrl: './crear-actividad.component.html',
@@ -14,6 +15,8 @@ import { UbicacionGPS } from '../ubicacionGPS';
 })
 export class CrearActividadComponent implements OnInit {
   actividad: Actividad;
+  
+
   tituloAdd: string = "";
   descripcionAdd: string = "";
   tagsAdd: string[] = [];

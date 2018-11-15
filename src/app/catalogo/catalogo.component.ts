@@ -25,7 +25,7 @@ export class CatalogoComponent implements OnInit {
     private location: Location ) { }
 
   ngOnInit(): void{
-    this.actividad = {titulo:null, descripcion:null, estrellas:0, propietario: "time4time", tags:null,clientes:[],_id:0,__v:0, ubicacion: null, location:null}
+    this.actividad = {titulo:null, descripcion:null, estrellas:0, propietario: "time4time", tags:null,clientes:[],_id:0,__v:0, ubicacion: null, location:null};
     //this.frontendService.getActividadesPropietario(this.actividad).subscribe(listaAct => this.lista = listaAct);
     this.frontendService.getActividadesPropietario(this.actividad).subscribe(data =>  this.lista = data);
     this.localStorage.setItem('titulo',this.actividad.titulo).subscribe(() => {});

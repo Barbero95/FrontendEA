@@ -7,6 +7,7 @@ import { catchError, map, tap } from 'rxjs/operators';
 import { MessageService } from './message.service';
 import { Actividad } from './actividad';
 import { Usuario } from './usuario';
+import { Estadistica } from './estadistica';
  
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -22,6 +23,17 @@ export class FrontendService {
     private http: HttpClient,
     private messageService: MessageService) { }
  
+  // get para estadisticas ------------------------------
+  getEstadistica(id: string): Observable<Estadistica> {
+    const url = `${this.actividadesUrl}/stats/${id}`;
+    return this.http.get<Estadistica>(url).pipe(
+      tap(_ => this.log(`El id de la actividad es ${id}`)),
+      catchError(this.handleError<Estadistica>(`error`))
+    );
+  }
+
+
+  //---------------------------------------------
   /* GET: De todos los usuarios, de un usuario, de todas las actividades o de una actividad */
   //get de una actividad en concreto
   getActividad(titulo: string): Observable<Actividad> {

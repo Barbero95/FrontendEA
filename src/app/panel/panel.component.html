@@ -1,0 +1,25 @@
+
+<p>
+  panel works!
+</p>
+<table> Actividades
+  <tr *ngFor="let item of lista">
+    <td> {{item.titulo}}</td>
+    <td> {{item.descripcion}}</td>
+    <td> {{item.tags}}</td>
+   <!-- <button (click)="modificarActivity(item)">Modificar</button>-->
+  <button (click)="estadisticaActivity(item)">Graf</button>
+    
+  </tr>
+</table>
+
+<p>Graf:</p>
+
+<div style="display: block">
+  <canvas baseChart
+          [datasets]="barChartData"
+          [labels]="barChartLabels"
+          [legend]="barChartLegend"
+          [chartType]="barChartType"></canvas>
+</div>
+<button (click)="goActualizar()">Update</button>
