@@ -6,12 +6,12 @@ export class Actividad {
     __v: number;
     titulo: string;
     descripcion: string;
-    estrellas:number;
+    estrellas: number;
     tags: string[];
     propietario: string;
     clientes: ObjetoDeNickYEstado[];
     ubicacion: string;
-    //location: UbicacionGPS;
+    // location: UbicacionGPS;
     location: number[];
 
 }

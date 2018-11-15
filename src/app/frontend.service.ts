@@ -1,29 +1,29 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
- 
+
 import { Observable, of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
- 
+
 import { MessageService } from './message.service';
 import { Actividad } from './actividad';
 import { Usuario } from './usuario';
- 
+
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
 };
- 
+
 @Injectable({ providedIn: 'root' })
 export class FrontendService {
   // URL to web api
-  private usuariosUrl: string = 'http://localhost:3000/users';
-  private actividadesUrl: string = 'http://localhost:3000/actividades';
- 
+  private usuariosUrl = 'http://localhost:3000/users';
+  private actividadesUrl = 'http://localhost:3000/actividades';
+
   constructor(
     private http: HttpClient,
     private messageService: MessageService) { }
- 
+
   /* GET: De todos los usuarios, de un usuario, de todas las actividades o de una actividad */
-  //get de una actividad en concreto
+  // get de una actividad en concreto
   getActividad(titulo: string): Observable<Actividad> {
     const url = `${this.actividadesUrl}/${titulo}`;
     return this.http.get<Actividad>(url).pipe(
@@ -39,11 +39,13 @@ export class FrontendService {
     );
   }
 
-  //get de todas las actividades de un usuario
+  // get de todas las actividades de un usuario
+
   getActividadesPropietario(actividad: Actividad): Observable<Actividad[]> {
     const url = `${this.actividadesUrl}/propietario/${actividad.propietario}`;
     return this.http.get<Actividad[]>(url)
-    //.pipe(
+
+    // .pipe(
     //  tap(_ => this.log(`El propietario=${actividad.propietario}`)),
      // catchError(this.handleError<Actividad>(`error`))
  //   );
@@ -53,7 +55,7 @@ export class FrontendService {
 
   /*POST: Crear usuario o crear actividad*/
   //////// Save methods //////////
-  //crear actividad
+  // crear actividad
   postActividad (actividad: Actividad): Observable<Actividad> {
     return this.http.post<Actividad>(this.actividadesUrl, actividad, httpOptions).pipe(
       tap((actividad: Actividad) => this.log(`added activity`)),
@@ -67,11 +69,11 @@ export class FrontendService {
       tap(_ => this.log('')),
       catchError(this.handleError<Actividad>(`error`)));
   }
- 
+
   /** PUT: update the user on the server */
 
   /** PUT: update the activity on the server */
-  //modificar una actividad
+  // modificar una actividad
   updateActividad (actividad: Actividad, title: string): Observable<any> {
     const url = `${this.actividadesUrl}/update/${title}`;
     return this.http.put(url, actividad, httpOptions).pipe(
@@ -89,31 +91,31 @@ export class FrontendService {
 
 
   /** DELETE: Delete an activity from an user*/
-  //borrar una actividad
+  // borrar una actividad
   deleteActividad (actividad: Actividad): Observable<any> {
     const url = `${this.actividadesUrl}/${actividad.propietario}/${actividad.titulo}`;
-    return this.http.delete(url,httpOptions).pipe(
+    return this.http.delete(url, httpOptions).pipe(
       tap(_ => this.log(`borrado de actividad=${actividad.titulo}`)),
       catchError(this.handleError<any>('DeleteActivity'))
     );
   }
 
 
-  //No borrar
+  // No borrar
   private handleError<T> (operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
- 
+
       // TODO: send the error to remote logging infrastructure
       console.error(error); // log to console instead
- 
+
       // TODO: better job of transforming error for user consumption
       this.log(`${operation} failed: ${error.message}`);
- 
+
       // Let the app keep running by returning an empty result.
       return of(result as T);
     };
   }
- 
+
   /** Log a HeroService message with the MessageService */
   private log(message: string) {
     this.messageService.add(`FrontendService: ${message}`);

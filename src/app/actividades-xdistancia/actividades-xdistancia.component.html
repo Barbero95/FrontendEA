@@ -1,0 +1,26 @@
+<br><br>
+
+<select [(ngModel)]="valSelected" (ngModelChange)="onValSelected($event)">
+  <option *ngFor="let val of distancia" [value]="val.valor">
+    {{val.valor}}
+  </option>
+</select>
+
+<br>
+<br>
+
+{{textprova}}
+
+<br><br>
+
+
+
+<table> Actividades por distancia
+  <tr *ngFor="let item of lista">
+    <td> {{item.titulo}}</td>
+    <td> {{item.descripcion}}</td>
+    <td> {{item.tags}}</td>
+
+
+  </tr>
+</table>

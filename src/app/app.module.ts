@@ -1,11 +1,11 @@
 
-import { FormsModule }    from '@angular/forms';
-import { HttpClientModule }    from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-import { AppRoutingModule }     from './app-routing.module';
+import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
 import { CrearActividadComponent } from './crear-actividad/crear-actividad.component';
@@ -15,6 +15,8 @@ import { MessagesComponent } from './messages/messages.component';
 import { MenuPrincipalComponent } from './menu-principal/menu-principal.component';
 import { CatalogoComponent } from './catalogo/catalogo.component';
 import { EditarActividadComponent } from './editar-actividad/editar-actividad.component';
+import { ActividadesXdistanciaComponent } from './actividades-xdistancia/actividades-xdistancia.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -25,13 +27,16 @@ import { EditarActividadComponent } from './editar-actividad/editar-actividad.co
     MessagesComponent,
     CatalogoComponent,
     MenuPrincipalComponent,
-    EditarActividadComponent
+    EditarActividadComponent,
+    ActividadesXdistanciaComponent,
+
   ],
   imports: [
     BrowserModule,
     FormsModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    NgbModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
