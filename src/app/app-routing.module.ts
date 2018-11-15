@@ -8,7 +8,9 @@ import { EditarPerfilComponent } from './editar-perfil/editar-perfil.component';
 import { MenuPrincipalComponent } from './menu-principal/menu-principal.component';
 import { CatalogoComponent } from './catalogo/catalogo.component';
 import { EditarActividadComponent } from './editar-actividad/editar-actividad.component';
- 
+import { AdministracionComponent } from './administracion/administracion.component';
+import { SistemaComponent } from './sistema/sistema.component';
+
 const routes: Routes = [
   { path: '', redirectTo: '/menuPrincipal', pathMatch: 'full' },
   { path: 'crearActividad', component: CrearActividadComponent },
@@ -16,7 +18,9 @@ const routes: Routes = [
   { path: 'catalogo', component: CatalogoComponent },
   { path: 'editarPerfil', component: EditarPerfilComponent },
   { path: 'perfil', component: VerPerfilComponent },
-  { path: 'editarActividad/:titulo', component: EditarActividadComponent }
+  { path: 'editarActividad/:titulo', component: EditarActividadComponent },
+  { path: 'administracion', component: AdministracionComponent },
+  { path: 'sistema', component: SistemaComponent }
 ];
  
 @NgModule({

@@ -1,0 +1,11 @@
+<table> Usuarios
+  <tr *ngFor="let item of lista">
+    <td> {{item.nombre}}</td>
+    <td> {{item.apellido}}</td>
+    <td> {{item.rol}}</td>
+   <!-- <button (click)="modificarActivity(item)">Modificar</button>-->
+   <button (click)="editarUsuario()">Editar</button>
+  <button (click)="eliminarUsuario(item)">Eliminar</button>
+    
+  </tr>
+</table>

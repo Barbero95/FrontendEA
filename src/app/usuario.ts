@@ -9,6 +9,7 @@ export class Usuario {
     tags: string[];
     estrellas: number;
     imagen: string;
+    rol: string;
     actividadesPropietario: number[];
     actividadesCliente: number[];
 }

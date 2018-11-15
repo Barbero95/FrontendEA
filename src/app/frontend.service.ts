@@ -38,6 +38,14 @@ export class FrontendService {
       catchError(this.handleError<Usuario>(`error`))
     );
   }
+  getUsuarios(): Observable<Usuario[]> {
+    const url = `${this.usuariosUrl}/usuarios`;
+    return this.http.get<Usuario[]>(url).pipe(
+      tap(_ => this.log(``)),
+      catchError(this.handleError<Usuario[]>(`error`))
+    );
+  }
+
 
   //get de todas las actividades de un usuario
   getActividadesPropietario(actividad: Actividad): Observable<Actividad[]> {
@@ -60,6 +68,17 @@ export class FrontendService {
       catchError(this.handleError<Actividad>('addActivity'))
     );
   }
+
+  validarAdmin (usuario: Usuario): Observable<String> {
+    const url = `http://localhost:3000/users/validacion`;
+    return this.http.post<String>(url, usuario, httpOptions).pipe(
+      tap((usuario: Usuario) => this.log(`Validación del usuario=${usuario.nombre}`)),
+      catchError(this.handleError<Actividad>('Validación errónea'))
+    );
+  }
+
+
+
 // Esto sirve para editar catalogo
    getActividadDePropietario(actividad: Actividad): Observable<Actividad> {
     const url = `${this.actividadesUrl}/pidiendo/${actividad.propietario}/${actividad.titulo}`;
@@ -95,6 +114,14 @@ export class FrontendService {
     return this.http.delete(url,httpOptions).pipe(
       tap(_ => this.log(`borrado de actividad=${actividad.titulo}`)),
       catchError(this.handleError<any>('DeleteActivity'))
+    );
+  }
+
+  deleteUsuario (usuario: Usuario): Observable<any> {
+    const url = `${this.usuariosUrl}/${usuario.nick}`;
+    return this.http.delete(url,httpOptions).pipe(
+      tap(_ => this.log(`borrado de usuario`)),
+      catchError(this.handleError<any>('DeleteUser'))
     );
   }
 

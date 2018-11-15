@@ -22,7 +22,7 @@ export class VerPerfilComponent implements OnInit {
   
 
   ngOnInit() {
-    this.usuario = {nombre: "",apellido:"",nick:"time4time",email:"",estrellas:0,tags:[],imagen:"",password:"",actividadesPropietario:[], actividadesCliente:[],_id:0,__v:0}
+    this.usuario = {nombre: "",apellido:"",nick:"time4time",email:"",estrellas:0,tags:[],imagen:"",password:"",actividadesPropietario:[], rol: "normal",actividadesCliente:[],_id:0,__v:0}
     this.frontendService.getUsuario(this.usuario.nick).subscribe(user => this.usuario = user);
   }
 
