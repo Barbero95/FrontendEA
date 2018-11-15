@@ -70,6 +70,17 @@ export class FrontendService {
       catchError(this.handleError<Actividad>(`error`)));
   }
 
+  getActividadXdistancia (val: Number): Observable <Actividad[]> {
+
+    const url = `${this.actividadesUrl}/dist/${val}`;
+    return this.http.get<Actividad[]>(url);
+
+  }
+
+
+
+
+
   /** PUT: update the user on the server */
 
   /** PUT: update the activity on the server */

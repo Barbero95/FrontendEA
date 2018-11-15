@@ -13,18 +13,19 @@ import {Valordistancia} from '../valordistancia';
 })
 export class ActividadesXdistanciaComponent implements OnInit {
 
-  textprova: string;
   valSelected: Number;
   actividad: Actividad;
   lista: Actividad[];
   distancia: Valordistancia[];
+
+  valdist: Number;
 
   constructor(private route: ActivatedRoute,
               private frontendService: FrontendService) {
 
     this.actividad = {titulo: null, descripcion: null, estrellas: 0, propietario: 'time4time', tags: null,
       clientes: [], _id: 0, __v: 0, ubicacion: null, location: null};
-    this.frontendService.getActividadesPropietario(this.actividad).subscribe(data =>  this.lista = data);
+    this.frontendService.getActividadXdistancia(this.valdist).subscribe(data =>  this.lista = data);
 
 
   }
@@ -42,19 +43,10 @@ export class ActividadesXdistanciaComponent implements OnInit {
 
   onValSelected(val: any) {
 
-this.funcioprova(val);
+this.valdist = (val);
 
   }
 
-  funcioprova (val: any) {
 
-    this.textprova = ' Has seleccionat: ' + val;
-
-  }
-
-  filtrarPerDistancia (val: number) {
-
-
-  }
 
 }
