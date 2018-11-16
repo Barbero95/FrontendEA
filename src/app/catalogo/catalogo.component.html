@@ -19,6 +19,7 @@
     <td> {{item.tags}}</td>
    <!-- <button (click)="modificarActivity(item)">Modificar</button>-->
   <button [routerLink]="['/editarActividad',item.titulo]">Editar</button>
+  <button [routerLink]="['/crearDenuncias',item.titulo]">Denunciar Actividad</button>
   <button (click)="eliminarActivity(item)">Eliminar</button>
     
   </tr>

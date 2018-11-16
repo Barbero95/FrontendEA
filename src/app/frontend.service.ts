@@ -7,6 +7,7 @@ import { catchError, map, tap } from 'rxjs/operators';
 import { MessageService } from './message.service';
 import { Actividad } from './actividad';
 import { Usuario } from './usuario';
+import { Denuncia } from './denuncia';
  
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -17,6 +18,7 @@ export class FrontendService {
   // URL to web api
   private usuariosUrl: string = 'http://localhost:3000/users';
   private actividadesUrl: string = 'http://localhost:3000/actividades';
+  private denunciasUrl: string = 'http://localhost:3000/denuncias';
  
   constructor(
     private http: HttpClient,
@@ -49,6 +51,16 @@ export class FrontendService {
  //   );
  ;
   }
+  //get de todas las actividades de un usuario
+  getDenuncias(denuncia: Denuncia): Observable<Denuncia[]> {
+    const url = `${this.denunciasUrl}`;
+    return this.http.get<Denuncia[]>(url)
+    //.pipe(
+    //  tap(_ => this.log(`El propietario=${actividad.propietario}`)),
+     // catchError(this.handleError<Actividad>(`error`))
+ //   );
+ ;
+  }
 
 
   /*POST: Crear usuario o crear actividad*/
@@ -58,6 +70,14 @@ export class FrontendService {
     return this.http.post<Actividad>(this.actividadesUrl, actividad, httpOptions).pipe(
       tap((actividad: Actividad) => this.log(`added activity`)),
       catchError(this.handleError<Actividad>('addActivity'))
+    );
+  }
+
+  //crear denúncia
+  postDenuncia (denuncia: Denuncia): Observable<Denuncia> {
+    return this.http.post<Denuncia>(this.denunciasUrl, denuncia, httpOptions).pipe(
+      tap((denuncia: Denuncia) => this.log(`added denuncia`)),
+      catchError(this.handleError<Denuncia>('adddenuncia'))
     );
   }
 // Esto sirve para editar catalogo
@@ -79,6 +99,25 @@ export class FrontendService {
       catchError(this.handleError<any>('updateActivity'))
     );
   }
+
+  //deshabilita actividad
+
+  deshabilitarActividad (denuncia: Denuncia): Observable<any> {
+    const url = `${this.actividadesUrl}/deshabilitar/${denuncia.denunciado}/${denuncia.idActividadDenunciada}`;
+    return this.http.put(url, httpOptions).pipe(
+      tap(_ => this.log(`deshabilitar actividad=${denuncia.idActividadDenunciada}`)),
+      catchError(this.handleError<any>('deshabilitarActivity'))
+    );
+  }
+// habilita actividad
+  habilitarActividad (denuncia: Denuncia): Observable<any> {
+    const url = `${this.actividadesUrl}/habilitar/${denuncia.denunciado}/${denuncia.idActividadDenunciada}`;
+    return this.http.put(url, httpOptions).pipe(
+      tap(_ => this.log(`deshabilitar actividad=${denuncia.idActividadDenunciada}`)),
+      catchError(this.handleError<any>('deshabilitarActivity'))
+    );
+  }
+
   updateUsuario (usuario: Usuario): Observable<any> {
     const url = `${this.usuariosUrl}/${usuario.nick}`;
     return this.http.put(url, usuario, httpOptions).pipe(
@@ -87,7 +126,8 @@ export class FrontendService {
     );
   }
 
-
+  
+  
   /** DELETE: Delete an activity from an user*/
   //borrar una actividad
   deleteActividad (actividad: Actividad): Observable<any> {
@@ -95,6 +135,13 @@ export class FrontendService {
     return this.http.delete(url,httpOptions).pipe(
       tap(_ => this.log(`borrado de actividad=${actividad.titulo}`)),
       catchError(this.handleError<any>('DeleteActivity'))
+    );
+  }
+  deleteDenuncia (denuncia: Denuncia): Observable<any> {
+    const url = `${this.denunciasUrl}/${denuncia._id}`;
+    return this.http.delete(url,httpOptions).pipe(
+      tap(_ => this.log(`borrado de denuncia=${denuncia._id}`)),
+      catchError(this.handleError<any>('DeleteDenuncia'))
     );
   }
 

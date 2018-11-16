@@ -12,6 +12,7 @@ label {
   }
   button {
     margin-top: 15px;
+    margin-left: 15px;
     font-family: Arial;
     background-color: #eee;
     border: none;

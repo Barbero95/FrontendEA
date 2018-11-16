@@ -13,5 +13,6 @@ export class Actividad {
     ubicacion: string;
     //location: UbicacionGPS;
     location: number[];
+    habilitada:number;
 
 }

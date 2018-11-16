@@ -35,7 +35,7 @@ export class EditarActividadComponent implements OnInit {
   
   ngOnInit() {
     this.titulo = this.route.snapshot.paramMap.get('titulo');
-    this.actividad = {_id:0,__v:0,titulo:this.titulo, descripcion:this.descripcionAdd, estrellas:0, propietario: "time4time", tags:this.tagsAdd,clientes:[],ubicacion:"Barcelona", location: this.loc2};
+    this.actividad = {_id:0,__v:0,titulo:this.titulo, descripcion:this.descripcionAdd, estrellas:0, propietario: "time4time", tags:this.tagsAdd,clientes:[],ubicacion:"Barcelona", location: this.loc2, habilitada:0};
     
    this.frontendService.getActividadDePropietario(this.actividad).subscribe(data => this.actividad = data);
   }

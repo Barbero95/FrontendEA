@@ -1,0 +1,64 @@
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+caption{
+    border: 5px;
+    padding-top: 20px;
+    padding-bottom: 10px;
+    font-size: 20px;
+}
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+
+.button1 , .button2{
+    display: inline-block;
+    margin-left: 5px;
+    padding: 3px 5px;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: center;
+    outline: none;
+    color: #fff;
+    background-color: red;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0 4px #999;
+  }
+  .button3 {
+    display: inline-block;
+    margin-left: 5px;
+    padding: 3px 5px;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: center;
+    outline: none;
+    color: #fff;
+    background-color: green;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0 4px #999;
+  }
+  
+  .button1:hover , .button2:hover {background-color: red}
+
+  .button3:hover {background-color: green}
+  
+  .button1:active, .button2:active{
+    background-color: red;
+    box-shadow: 0 2px #666;
+    transform: translateY(2px);
+  }
+  .button3:active{
+    background-color: green;
+    box-shadow: 0 2px #666;
+    transform: translateY(2px);
+  }

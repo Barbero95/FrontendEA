@@ -1,0 +1,19 @@
+<div>
+  <label>Denunciar Actividad:
+    <p></p>
+    <table>
+      <tr>
+          <td>Resumen:</td> 
+          <td><input [(ngModel)] = "resumenAdd"/></td>           
+      </tr>
+      <tr>
+        <td>Descripción:</td> 
+        <td><input [(ngModel)] = "explicacionAdd"/></td>           
+      </tr>
+    </table>
+  </label>
+</div>
+<div *ngIf="alert1">Actividad ya existe</div>
+<button (click)="postDenuncia()">Crear</button><br>
+
+<!--<button (click)="goBack()">go back</button>-->

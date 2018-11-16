@@ -15,6 +15,8 @@ import { MessagesComponent } from './messages/messages.component';
 import { MenuPrincipalComponent } from './menu-principal/menu-principal.component';
 import { CatalogoComponent } from './catalogo/catalogo.component';
 import { EditarActividadComponent } from './editar-actividad/editar-actividad.component';
+import { VerDenunciasComponent } from './ver-denuncias/ver-denuncias.component';
+import { CrearDenunciasComponent } from './crear-denuncias/crear-denuncias.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,9 @@ import { EditarActividadComponent } from './editar-actividad/editar-actividad.co
     MessagesComponent,
     CatalogoComponent,
     MenuPrincipalComponent,
-    EditarActividadComponent
+    EditarActividadComponent,
+    VerDenunciasComponent,
+    CrearDenunciasComponent
   ],
   imports: [
     BrowserModule,
