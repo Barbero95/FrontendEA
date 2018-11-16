@@ -1,0 +1,44 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+<div>
+  <label style="color: forestgreen" >Crear Actividad:
+    <table style="color: #607D8B">
+      <tr>
+          <td>Titulo:</td> 
+          <td><input [(ngModel)] = "tituloAdd"/></td>           
+      </tr>
+      <tr><td></td><td><div *ngIf="alert2" style="color:#FF0000">Debes añadir un título.</div></td></tr>
+      <tr>
+        <td>Descripción:</td> 
+        <td><input [(ngModel)] = "descripcionAdd"/></td>           
+      </tr>
+      <tr><td></td><td><div *ngIf="alert3" style="color:#FF0000">Debes añadir una descripción.</div></td></tr>
+      <tr>
+        <td>Tags:</td>
+        <td>
+          <input [(ngModel)] = "variable"/>
+        </td>
+        <td><button (click)="addTag()">Añadir</button></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td>Tags añadidos: 
+          <tr *ngFor="let item of tagsAdd">
+            <td>- {{item}}</td>
+          </tr>
+          <button (click)="deleteTag()">Eliminar</button>
+        </td>
+      </tr>
+    </table>
+  </label>
+</div>
+<button (click)="postActivity()">Crear</button><br>
+
+<div *ngIf="alert1">
+  <div class="alert alert-danger" role="alert">
+    Faltan campos por rellenar!
+  </div>
+</div>
+
+<!--<button (click)="goBack()">go back</button>-->
+

@@ -1,0 +1,49 @@
+<!--
+<div>
+  <label>Crear Actividad:
+    <p></p>
+    <div><span>Titular: </span>{{Actividad.Titular}}</div>
+    <div><span>Descripcion: </span>{{Actividad.Descripcion}}</div>
+    <div><span>Estrellas: </span>{{Actividad.Estrellas}}</div>
+    <div><span>Tags: </span>{{Actividad.Tags}}</div>
+    <div><span>Clientes: </span>{{Actividad.Clientes}}</div>
+  </label>
+</div>
+
+<button (click)="sendUser()">Recibir lista de actividades</button><br>
+-->
+<div>Actividades</div>
+<br>
+<table>
+  <thead>
+    <tr>
+      <th>Título</th>
+      <th>Descripción</th>
+      <th>Tags</th>
+      <th>Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of lista">
+      <td [routerLink]="['/infoActividad', item.titulo]"> {{item.titulo}}</td>
+      <td> {{item.descripcion}}</td>
+      <td> {{item.tags}}</td>
+      <td>
+        <button [routerLink]="['/editarActividad',item.titulo]" class="no-margin">Editar</button>
+        <button (click)="eliminarActivity(item)" class="no-margin">Eliminar</button>
+      </td>
+      <!-- <button (click)="modificarActivity(item)">Modificar</button>-->
+    </tr>
+  </tbody>
+</table>
+
+
+<!--
+<ul>
+  <li *ngFor="let element of listaAct; let i = index">
+    {{i}}. {{element.titulo}}, {{element.descripcion}}
+  </li>
+</ul>
+<button (click)="goBack()">go back</button>
+-->
+

@@ -1,0 +1,56 @@
+<br>
+<div>
+  <label>Actividad: <b>{{actividad.titulo}}</b></label>
+  <br><br>
+  <label>Descripción: {{actividad.descripcion}}</label>
+  <br>
+  <label>Valoracion Media: {{actividad.rating}} || ({{actividad.comments.length}}) Valoraciones</label>
+  <br>
+  <label>Ubicación: {{actividad.ubicacion  }}</label>
+  <br>
+  <label>Propietario: {{actividad.propietario}}</label>
+  <br>
+  <label>Tags:</label>
+
+  <label *ngFor="let item of actividad.tags"> <br>- {{item}}</label>
+</div>
+<br><br>
+
+<button (click)="showAddComments = true; showViewComments = false" style="background:red">
+  Añadir Comentario
+</button>
+&nbsp;&nbsp;
+<button (click)="showAddComments = false; showViewComments = true" style="background:blue">
+  Ver Comentarios
+</button>
+<br><br>
+<div *ngIf="showAddComments">
+  <label>Añadir Comentario:</label>
+  <br>
+  <br>
+  <label for="name">Nombre:</label>
+  <input id="name" [(ngModel)] = "comment.user"/>
+  <br>
+  <label for="comment">Comentario:</label>
+  <input id="comment" [(ngModel)] = "comment.comment"/>
+  <br>
+  <label for="rating">Puntuación:</label>
+  <input id="rating" type="number" min="1" max="10" [(ngModel)] = "comment.rating"/>
+  <br><br>
+  <button (click)="addComment()">
+    Añadir Comentario
+  </button>
+</div>
+<div *ngIf="showViewComments">
+  <label>Comentarios:</label>
+  <br><br>
+  <label *ngIf="actividad.comments.length == 0">No hay comentarios</label>
+  <div class="card" *ngFor="let comment of actividad.comments">
+    <b>{{comment.rating}}</b>
+    &nbsp;&nbsp;
+    <label>{{comment.user}}</label>
+    <br>
+    <label>{{comment.comment}}</label>
+    <br><br>
+  </div>
+</div>
