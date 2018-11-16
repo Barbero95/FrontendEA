@@ -10,8 +10,10 @@ export class Actividad {
     tags: string[];
     propietario: string;
     clientes: ObjetoDeNickYEstado[];
+    location: number[];
     ubicacion: string;
     //location: UbicacionGPS;
-    location: number[];
+    
+    //geo: UbicacionGPS;
 
 }

@@ -1,4 +1,6 @@
 export class UbicacionGPS {
-    tipo:  string;
-    coordinates: number[];
+    //type:  'Point';
+    //coordinates: number[];
+    lat: number;
+    lng: number;
 }
