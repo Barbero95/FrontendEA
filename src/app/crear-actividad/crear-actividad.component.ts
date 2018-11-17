@@ -40,7 +40,7 @@ export class CrearActividadComponent implements OnInit {
   ngOnInit() {
     //this.loc = {type: 'Point', coordinates: [124,124]}
     this.obj = {idUser: "11xx11",estado: 0};
-    this.loc2 = [124,124];
+    this.loc2 = [41.3818, 2.1685];
     this.geo = {lat:124,lng:124};
   }
 
@@ -64,7 +64,7 @@ export class CrearActividadComponent implements OnInit {
         tags:this.tagsAdd,
         clientes:[],
         ubicacion:"Barcelona",
-        location: this.loc2
+        localizacion: this.loc2
       };
 
       this.frontendService.postActividad(this.actividad).subscribe( act => this.goBack(act), err => console.error('Ops: ' + err.message));
