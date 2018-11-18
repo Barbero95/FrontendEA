@@ -4,6 +4,7 @@ import { Location } from '@angular/common';
 import { FrontendService }  from '../frontend.service';
 import { Usuario } from '../usuario';
 import { SistemaComponent } from '../sistema/sistema.component';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-administracion',
@@ -15,6 +16,7 @@ export class AdministracionComponent implements OnInit {
 
   constructor(    
     private route: ActivatedRoute,
+    private router: Router,
     private frontendService: FrontendService,
     private location: Location) { }
 
@@ -29,7 +31,11 @@ export class AdministracionComponent implements OnInit {
     rol: "admin", actividadesCliente: [], actividadesPropietario: []};
     
     if(this.usuario.rol  === "admin"){
-    this.frontendService.validarAdmin(this.usuario).subscribe();
+    this.frontendService.validarAdmin(this.usuario).subscribe(
+      data => 
+        this.router.navigateByUrl('/sistema')
+    )
+      
     }
  //res => { this.jsonActividad = res.json();}
   }
