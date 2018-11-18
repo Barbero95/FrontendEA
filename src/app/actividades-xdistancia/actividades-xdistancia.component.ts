@@ -18,14 +18,14 @@ export class ActividadesXdistanciaComponent implements OnInit {
   lista: Actividad[];
   distancia: Valordistancia[];
 
+  latitude: Number;
+  longitude: Number;
+
   valdist: Number;
 
   constructor(private route: ActivatedRoute,
               private frontendService: FrontendService) {
 
-    this.actividad = {titulo: null, descripcion: null, estrellas: 0, propietario: 'time4time', tags: null,
-      clientes: [], _id: 0, __v: 0, ubicacion: null, location: null};
-    this.frontendService.getActividadXdistancia(this.valdist).subscribe(data =>  this.lista = data);
 
 
   }
@@ -38,12 +38,47 @@ export class ActividadesXdistanciaComponent implements OnInit {
       {valor: 100}
     ];
     this.valSelected = 10;
+
+
+
+
   }
+
 
 
   onValSelected(val: any) {
 
 this.valdist = (val);
+
+    if (navigator.geolocation) {
+
+      navigator.geolocation.getCurrentPosition(
+
+        function (datos) {
+
+          this.latitude = datos.coords.latitude;
+          this.longitude = datos.coords.longitude;
+
+          alert('latitud:' + datos.coords.latitude + ' longitud:' + this.latitude);
+        },
+        function () {
+
+          alert('Algo falla');
+
+        }
+      );
+
+    } else {
+
+      alert('No esta soportado');
+
+    }
+
+    this.actividad = {titulo: null, descripcion: null, estrellas: 0, propietario: 'time4time', tags: null,
+      clientes: [], _id: 0, __v: 0, ubicacion: null, location: null};
+    this.frontendService.getActividadXdistancia(this.valdist, this.latitude, this.longitude).subscribe(data =>  this.lista = data);
+
+
 
   }
 

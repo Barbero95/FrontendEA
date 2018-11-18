@@ -70,9 +70,9 @@ export class FrontendService {
       catchError(this.handleError<Actividad>(`error`)));
   }
 
-  getActividadXdistancia (val: Number): Observable <Actividad[]> {
+  getActividadXdistancia (val: Number, longitude: Number, latitude: Number): Observable <Actividad[]> {
 
-    const url = `${this.actividadesUrl}/dist/${val}`;
+    const url = `${this.actividadesUrl}/dist/${val}/${longitude}/${latitude}`;
     return this.http.get<Actividad[]>(url);
 
   }
