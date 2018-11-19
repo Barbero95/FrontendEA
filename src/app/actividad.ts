@@ -2,7 +2,7 @@ import { ObjetoDeNickYEstado } from "./objetoDeNickYEstado";
 import { UbicacionGPS } from "./ubicacionGPS";
 
 export class Actividad {
-    _id: number;
+    _id: string;
     __v: number;
     titulo: string;
     descripcion: string;
@@ -10,8 +10,10 @@ export class Actividad {
     tags: string[];
     propietario: string;
     clientes: ObjetoDeNickYEstado[];
+    localizacion: number[];
     ubicacion: string;
     //location: UbicacionGPS;
-    location: number[];
+    
+    //geo: UbicacionGPS;
 
 }

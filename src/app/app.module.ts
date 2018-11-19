@@ -4,6 +4,7 @@ import { HttpClientModule }    from '@angular/common/http';
 
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { AgmCoreModule } from '@agm/core';
 
 import { AppRoutingModule }     from './app-routing.module';
 
@@ -35,7 +36,10 @@ import { RegisterComponent } from './register/register.component';
     BrowserModule,
     FormsModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyArxddQKtJEIZ37MKvsYU9E7vsDV59UBgM'
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]

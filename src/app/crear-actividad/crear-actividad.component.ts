@@ -23,6 +23,8 @@ export class CrearActividadComponent implements OnInit {
   obj: ObjetoDeNickYEstado;
   loc: UbicacionGPS;
   loc2: number[];
+  //geo: {lat:124,lng:124};
+  geo: UbicacionGPS;
 
   //Para alertas
   alert1: boolean = false;
@@ -36,9 +38,12 @@ export class CrearActividadComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.loc = {tipo: "Point", coordinates: [22,11]}
-    this.obj = {idUser: "11xx11",estado: 0}
-    this.loc2 = [11,22];
+    //this.loc = {type: 'Point', coordinates: [124,124]}
+    this.obj = {idUser: "11xx11",estado: 0};
+    //[latitude, longitude]
+    this.loc2 = [51.678418, 7.809007];
+    
+    this.geo = {lat:124,lng:124};
   }
 
   //crear actividad
@@ -51,7 +56,19 @@ export class CrearActividadComponent implements OnInit {
       this.alert1 = false;
     }
     if(this.tituloAdd != "" && this.descripcionAdd != ""){
-      this.actividad = {_id:0,__v:0,titulo:this.tituloAdd, descripcion:this.descripcionAdd, estrellas:0, propietario: "time4time", tags:this.tagsAdd,clientes:[],ubicacion:"Barcelona", location: this.loc2};
+      this.actividad = {
+        _id:"",
+        __v:0,
+        titulo:this.tituloAdd,
+        descripcion:this.descripcionAdd,
+        estrellas:0,
+        propietario: "time4time",
+        tags:this.tagsAdd,
+        clientes:[],
+        ubicacion:"Barcelona",
+        localizacion: this.loc2
+      };
+
       this.frontendService.postActividad(this.actividad).subscribe( act => this.goBack(act), err => console.error('Ops: ' + err.message));
     }
     

@@ -2,4 +2,23 @@
   menu-principal works!
 </p>
 
-<button (click)="goBack()">go back</button>
+Busqueda: 
+<input [(ngModel)] = "searchTag"/>
+<button (click)="goSearch()">Busqueda</button>
+<agm-map [latitude]="latitude" [longitude]="longitude">
+    <agm-marker 
+    *ngFor="let item of listaActividades"
+      [longitude]="item.localizacion[1]"
+      [latitude]="item.localizacion[0]"
+      
+    ></agm-marker>
+  
+</agm-map>
+<!--
+  dentro del mapa marker inicial prueba de mostra dos puntos prederminados
+   <agm-marker
+    *ngFor="let item of lista"
+      [latitude]="item.lati"
+      [longitude]="item.longi"
+    ></agm-marker>
+-->
