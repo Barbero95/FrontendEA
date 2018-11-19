@@ -37,7 +37,7 @@ export class EditarActividadComponent implements OnInit {
     this.titulo = this.route.snapshot.paramMap.get('titulo');
     
     this.actividad = {
-      _id:0,
+      _id:"",
       __v:0,
       titulo:this.titulo,
       descripcion:this.descripcionAdd,

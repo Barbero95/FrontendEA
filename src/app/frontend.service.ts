@@ -60,6 +60,23 @@ export class FrontendService {
       catchError(this.handleError<Actividad>('addActivity'))
     );
   }
+  
+  ////GPS dame todas las actividades cerca de mi y con este tag
+  postActividadesGPS (info: JSON): Observable<Actividad[]> {
+    const url = `${this.actividadesUrl}/busqueda/GPS`;
+    return this.http.post<Actividad[]>(url, info, httpOptions).pipe(
+      tap((info: JSON) => this.log(`Busqueda de actividades cercanas`)),
+      catchError(this.handleError<Actividad[]>('error en la busqueda de las actividades cercanas'))
+    );
+  }
+  getActividadesGPS (): Observable<Actividad[]> {
+    const url = `${this.actividadesUrl}/busqueda/GPS`;
+    return this.http.get<Actividad[]>(url).pipe(
+      tap(() => this.log(`get search gps por defecto`)),
+      catchError(this.handleError<Actividad[]>('error en la busqueda de prueba'))
+    );
+  }
+
 // Esto sirve para editar catalogo
    getActividadDePropietario(actividad: Actividad): Observable<Actividad> {
     const url = `${this.actividadesUrl}/pidiendo/${actividad.propietario}/${actividad.titulo}`;

@@ -2,7 +2,7 @@ import { ObjetoDeNickYEstado } from "./objetoDeNickYEstado";
 import { UbicacionGPS } from "./ubicacionGPS";
 
 export class Actividad {
-    _id: number;
+    _id: string;
     __v: number;
     titulo: string;
     descripcion: string;

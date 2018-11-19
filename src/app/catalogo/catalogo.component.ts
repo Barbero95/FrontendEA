@@ -32,7 +32,7 @@ export class CatalogoComponent implements OnInit {
       propietario: "time4time",
       tags:[""],
       clientes:[],
-      _id:0,
+      _id:"",
       __v:0,
       ubicacion: "", 
       localizacion:[]}
