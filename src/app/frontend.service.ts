@@ -6,7 +6,7 @@ import { catchError, map, tap } from 'rxjs/operators';
  
 import { MessageService } from './message.service';
 import { Actividad } from './actividad';
-import { Usuario } from './usuario';
+import { Usuario} from './usuario';
  
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -38,6 +38,13 @@ export class FrontendService {
       catchError(this.handleError<Usuario>(`error`))
     );
   }
+  getLogin(username: string , password: string): Observable<Usuario> {
+    const url = `${this.usuariosUrl}/login/${username}/${password}`;
+    return this.http.get<Usuario>(url).pipe(
+      tap(_ => this.log(`El Nick es ${username}`)),
+      catchError(this.handleError<Usuario>(`error`))
+    );
+  }
 
   //get de todas las actividades de un usuario
   getActividadesPropietario(actividad: Actividad): Observable<Actividad[]> {
@@ -49,6 +56,7 @@ export class FrontendService {
  //   );
  ;
   }
+
 
 
   /*POST: Crear usuario o crear actividad*/
@@ -74,6 +82,14 @@ export class FrontendService {
     return this.http.get<Actividad[]>(url).pipe(
       tap(() => this.log(`get search gps por defecto`)),
       catchError(this.handleError<Actividad[]>('error en la busqueda de prueba'))
+    );
+  }
+
+
+  postUsuario (usuario: Usuario): Observable<Usuario> {
+    return this.http.post<Usuario>(this.usuariosUrl, usuario, httpOptions).pipe(
+      tap((usuario: Usuario) => this.log(`added usuraio`)),
+      catchError(this.handleError<Usuario>('addUsuario'))
     );
   }
 
@@ -103,6 +119,9 @@ export class FrontendService {
       catchError(this.handleError<any>('updateActivity'))
     );
   }
+  
+
+
 
 
   /** DELETE: Delete an activity from an user*/

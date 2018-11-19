@@ -16,6 +16,8 @@ import { MessagesComponent } from './messages/messages.component';
 import { MenuPrincipalComponent } from './menu-principal/menu-principal.component';
 import { CatalogoComponent } from './catalogo/catalogo.component';
 import { EditarActividadComponent } from './editar-actividad/editar-actividad.component';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,9 @@ import { EditarActividadComponent } from './editar-actividad/editar-actividad.co
     MessagesComponent,
     CatalogoComponent,
     MenuPrincipalComponent,
-    EditarActividadComponent
+    EditarActividadComponent,
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
