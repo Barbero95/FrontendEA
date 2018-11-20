@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 import { FrontendService }  from '../frontend.service';
 import { Actividad } from '../actividad';
+import { Busqueda } from '../busqueda';
 
 
 
@@ -15,11 +16,13 @@ import { Actividad } from '../actividad';
 export class MenuPrincipalComponent implements OnInit {
   latitude: number = 51.678418;
   longitude: number = 7.809007;
-  actividad: Actividad = new Actividad;
+  actividad: Actividad;
   searchTag: string = "Escribre un Tag";
   listaActividades: Actividad[];
   locationInit: boolean;
   prueba: number = 0;
+
+  busqueda: Busqueda;
   
 
   //prueba de mostrar dos puntos
@@ -34,10 +37,19 @@ export class MenuPrincipalComponent implements OnInit {
   ngOnInit() {
     //this.locationInit = false;
     this.findMe();
+    
+    //this.frontendService.getActividadesPropietario(this.actividad).subscribe(listaAct => this.lista = listaAct);
+    
   }
 
   goSearch(){
-    this.frontendService.getActividadesGPS().subscribe(data =>  this.listaActividades = data);
+    //era con el get
+    //this.frontendService.getActividadesGPS().subscribe(data =>  this.listaActividades = data);
+
+    //con el post
+    this.busqueda = {latitude: this.latitude,longitude: this.longitude, distance: 1000, tag: this.searchTag} 
+    this.frontendService.postActividadesGPS(this.busqueda).subscribe(data =>  this.listaActividades = data);
+
     //this.locationInit = true;
   }
   goBack(): void {

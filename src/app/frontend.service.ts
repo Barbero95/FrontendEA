@@ -7,6 +7,7 @@ import { catchError, map, tap } from 'rxjs/operators';
 import { MessageService } from './message.service';
 import { Actividad } from './actividad';
 import { Usuario} from './usuario';
+import { Busqueda } from './busqueda';
  
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -70,10 +71,10 @@ export class FrontendService {
   }
   
   ////GPS dame todas las actividades cerca de mi y con este tag
-  postActividadesGPS (info: JSON): Observable<Actividad[]> {
+  postActividadesGPS (busqueda: Busqueda): Observable<Actividad[]> {
     const url = `${this.actividadesUrl}/busqueda/GPS`;
-    return this.http.post<Actividad[]>(url, info, httpOptions).pipe(
-      tap((info: JSON) => this.log(`Busqueda de actividades cercanas`)),
+    return this.http.post<Actividad[]>(url, busqueda, httpOptions).pipe(
+      tap((busqueda: Busqueda) => this.log(`Busqueda de actividades cercanas`)),
       catchError(this.handleError<Actividad[]>('error en la busqueda de las actividades cercanas'))
     );
   }
