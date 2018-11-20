@@ -5,7 +5,7 @@
 Busqueda: 
 <input [(ngModel)] = "searchTag"/>
 <button (click)="goSearch()">Busqueda</button>
-<agm-map [latitude]="latitude" [longitude]="longitude">
+<agm-map [latitude]="latitude" [longitude]="longitude" [zoom]="8">
     <agm-marker 
     *ngFor="let item of listaActividades"
       [longitude]="item.localizacion[1]"
@@ -14,6 +14,7 @@ Busqueda:
     ></agm-marker>
   
 </agm-map>
+
 <!--
   dentro del mapa marker inicial prueba de mostra dos puntos prederminados
    <agm-marker

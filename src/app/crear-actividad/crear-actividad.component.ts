@@ -31,6 +31,10 @@ export class CrearActividadComponent implements OnInit {
   alert2: boolean = false;
   alert3: boolean = false;
 
+  //GPS
+  latitude: number = 51.678418;
+  longitude: number = 7.809007;
+
   constructor(
     private route: ActivatedRoute,
     private frontendService: FrontendService,
@@ -38,6 +42,8 @@ export class CrearActividadComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+    //para saber donde creas la actividad
+    this.findMe();
     //this.loc = {type: 'Point', coordinates: [124,124]}
     this.obj = {idUser: "11xx11",estado: 0};
     //[latitude, longitude]
@@ -48,6 +54,7 @@ export class CrearActividadComponent implements OnInit {
 
   //crear actividad
   postActivity(): void{
+    this.loc2 = [this.latitude, this.longitude];
     if(this.tituloAdd == ""){this.alert2 = true;}else{this.alert2 = false;}
     if(this.descripcionAdd == ""){this.alert3 = true;}else{this.alert3 = false;}
     if (this.tituloAdd == "" && this.descripcionAdd ==""){
@@ -89,6 +96,17 @@ export class CrearActividadComponent implements OnInit {
       this.alert1 = true;
     }else{
       this.location.back();
+    }
+  }
+
+  findMe() {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition((position) => {
+        this.latitude = position.coords.latitude;
+        this.longitude = position.coords.longitude;
+      });
+    } else {
+      alert("Geolocation is not supported by this browser.");
     }
   }
 }

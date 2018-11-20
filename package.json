@@ -24,6 +24,8 @@
     "@ngx-pwa/local-storage": "^6.2.0",
     "core-js": "^2.5.4",
     "cors": "^2.8.4",
+    "geolocation": "^0.2.0",
+    "react-navigation": "^3.0.0",
     "rxjs": "~6.2.0",
     "zone.js": "~0.8.26"
   },

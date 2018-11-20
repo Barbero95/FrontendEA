@@ -4,6 +4,9 @@ import { Location } from '@angular/common';
 import { FrontendService }  from '../frontend.service';
 import { Actividad } from '../actividad';
 
+
+
+
 @Component({
   selector: 'app-menu-principal',
   templateUrl: './menu-principal.component.html',
@@ -30,6 +33,7 @@ export class MenuPrincipalComponent implements OnInit {
 
   ngOnInit() {
     //this.locationInit = false;
+    this.findMe();
   }
 
   goSearch(){
@@ -39,5 +43,31 @@ export class MenuPrincipalComponent implements OnInit {
   goBack(): void {
     this.location.back();
   }
+  findMe() {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition((position) => {
+        this.latitude = position.coords.latitude;
+        this.longitude = position.coords.longitude;
+      });
+    } else {
+      alert("Geolocation is not supported by this browser.");
+    }
+  }
+  /*
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(
+      function (datos) {
+        this.latitude = datos.coords.latitude;
+        this.longitude = datos.coords.longitude;
+        alert('latitud:' + datos.coords.latitude + ' longitud:' + this.latitude);
+      },
+      function () {
+        alert('Algo falla');
+      }
+    );
 
+  } else {
+    alert('No esta soportado');
+  }
+  */
 }
