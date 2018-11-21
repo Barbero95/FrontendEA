@@ -30,6 +30,7 @@ export class CrearActividadComponent implements OnInit {
   alert1: boolean = false;
   alert2: boolean = false;
   alert3: boolean = false;
+  alert4: boolean = false;
 
   //GPS
   latitude: number = 51.678418;
@@ -83,11 +84,18 @@ export class CrearActividadComponent implements OnInit {
   }
 
   addTag(): void {
-    this.tagsAdd.push(this.variable);
+    if(this.variable==""){
+      this.alert4 = true; 
+    }else{
+      this.tagsAdd.push(this.variable);
+      this.alert4 = false;
+    }
     this.variable = "";
   }
-  deleteTag(): void {
-    this.tagsAdd.pop();
+  deleteTag(item): void {
+    var pos = this.tagsAdd.indexOf(item);
+    this.tagsAdd.splice(pos,1);
+    console.log(pos);
   }
 
 

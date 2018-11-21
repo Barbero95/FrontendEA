@@ -19,10 +19,11 @@
   }
   button {
     margin-top: 15px;
+    margin-left: 15px;
     font-family: Arial;
     background-color: #eee;
     border: none;
-    padding: 10px 20px;
+    padding: 14px 20px;
     border-radius: 4px;
     cursor: pointer; cursor: hand;
   }
@@ -35,31 +36,22 @@
     cursor: auto;
   }
 
-  nav a {
-    padding: 5px 10px;
-    text-decoration: none;
-    margin-top: 10px;
-    margin-right: 7px;
-    display: inline-block;
-    background-color: #eee;
-    border-radius: 4px;
-  }
-  nav a:visited, a:link {
-    color: #607d8b;
-  }
-  nav a:hover {
-    color: #039be5;
-    background-color: #cfd8dc;
-  }
-  nav a.active {
-    color: #039be5;
-  }
   table{
     border-collapse: collapse; /* Los bordes de la tabla se pegarán (mejor aspecto) */
+    text-align: center;
   }
-  td{
-    border: 1px solid black;
+  h3 {
+    color: black;
+    text-align: center;
   }
+  h4 {
+    color: black;
+    text-align: left;
+    margin-left: 15px;
+    font-family: Arial;
+    font-weight: bold;
+  }
+
   .column {
     float: left;
     width: 50%;
@@ -71,3 +63,5 @@
       display: table;
       clear: both;
   }
+
+  

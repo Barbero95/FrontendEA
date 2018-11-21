@@ -13,10 +13,11 @@ label {
   }
   
   button {
+    margin-left: 15px;
     font-family: Arial;
     background-color: #eee;
     border: none;
-    padding: 3px 8px;
+    padding: 7px 7px;
     border-radius: 4px;
     cursor: pointer; cursor: hand;
   }
@@ -28,4 +29,25 @@ label {
     color: #ccc;
     cursor: auto;
   }
-  
+  table{
+    border-collapse: collapse; /* Los bordes de la tabla se pegarán (mejor aspecto) */
+    text-align: center;
+  }
+  h4 {
+    color: black;
+    text-align: center;
+    margin-top: 15px;
+    font-family: Arial;
+    font-weight: bold;
+  }
+  .column {
+    float: left;
+    width: 50%;
+  }
+
+  /* Clear floats after the columns */
+  .row:after {
+      content: "";
+      display: table;
+      clear: both;
+  }

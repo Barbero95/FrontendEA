@@ -1,19 +1,12 @@
-<h1>{{title}}</h1>
-<nav>
-  <!--
-  <a routerLink="/dashboard">Dashboard</a>
-  <a routerLink="/heroes">Heroes</a>
-  -->
-  <a routerLink="/menuPrincipal">MenuPrincipal</a>
-  <a routerLink="/catalogo">Catalogo</a>
-  <!--
-  <a routerLink="/editarPerfil">Editar Perfil</a>
-  -->
-  <a routerLink="/crearActividad">Crear Actividad</a>
-  <a routerLink="/perfil">Perfil</a>
-  <a routerLink="/login">Login</a>
-  <a routerLink="/registrar">Registro</a>
-</nav>
+<div class="topnav">
+    <a class="active" routerLink="/menuPrincipal">MenuPrincipal</a>
+    <a routerLink="/catalogo">Catalogo</a>
+    <a routerLink="/crearActividad">Crear Actividad</a>
+    <a routerLink="/perfil">Perfil</a>
+    <a class="log" routerLink="/login">Login</a>
+    <a class="log" routerLink="/registrar">Registro</a>
+</div>
+
 <router-outlet></router-outlet>
 <app-messages></app-messages>
 

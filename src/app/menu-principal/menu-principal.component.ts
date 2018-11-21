@@ -17,7 +17,7 @@ export class MenuPrincipalComponent implements OnInit {
   latitude: number = 51.678418;
   longitude: number = 7.809007;
   actividad: Actividad;
-  searchTag: string = "Escribre un Tag";
+  searchTag: string;
   listaActividades: Actividad[];
   locationInit: boolean;
   prueba: number = 0;
@@ -47,7 +47,7 @@ export class MenuPrincipalComponent implements OnInit {
     //this.frontendService.getActividadesGPS().subscribe(data =>  this.listaActividades = data);
 
     //con el post
-    this.busqueda = {latitude: this.latitude,longitude: this.longitude, distance: 1000, tag: this.searchTag} 
+    this.busqueda = {latitude: this.latitude,longitude: this.longitude, distance: 10, tag: this.searchTag} 
     this.frontendService.postActividadesGPS(this.busqueda).subscribe(data =>  this.listaActividades = data);
 
     //this.locationInit = true;

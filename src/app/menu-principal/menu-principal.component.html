@@ -1,14 +1,17 @@
-<p>
-  menu-principal works!
-</p>
-
-Busqueda: 
-<input [(ngModel)] = "searchTag"/>
-<button (click)="goSearch()">Busqueda</button>
+<h3>
+    <input placeholder="Busqueda.." type="text" [(ngModel)] = "searchTag"/>
+    <button (click)="goSearch()">Buscar</button>
+</h3>
 <p></p>
 <div class="row">
     <div class="column">
-        <table> Actividades cerca:
+      <h4>Actividades encontradas:</h4>
+        <table style="width:75%"> 
+          <tr>
+            <th>Titulo</th>
+            <th>Descripción</th>
+            <th>Tags</th>
+          </tr>
           <tr *ngFor="let item of listaActividades">
             <td> {{item.titulo}}</td>
             <td> {{item.descripcion}}</td>
@@ -17,7 +20,7 @@ Busqueda:
         </table>
     </div>
     <div class="column">
-      <agm-map [latitude]="latitude" [longitude]="longitude" [zoom]="8">
+      <agm-map [latitude]="latitude" [longitude]="longitude" [zoom]="15">
           <agm-marker 
           *ngFor="let item of listaActividades"
             [longitude]="item.localizacion[1]"

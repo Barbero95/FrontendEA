@@ -39,7 +39,7 @@ import { RegisterComponent } from './register/register.component';
     HttpClientModule,
     AgmCoreModule.forRoot({
       //aqui añadir la extensión que esta en el fichero de lectura
-      apiKey: 'api google'
+      apiKey: 'AIzaSyArxddQKtJEIZ37MKvsYU9E7vsDV59UBgM'
     })
   ],
   providers: [],
