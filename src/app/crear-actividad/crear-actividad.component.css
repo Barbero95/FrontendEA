@@ -1,5 +1,5 @@
 /* HeroDetailComponent's private CSS styles */
-label {
+  label {
     display: inline-block;
     width: 15em;
     margin: 2em 0;
@@ -17,7 +17,7 @@ label {
     font-family: Arial;
     background-color: #eee;
     border: none;
-    padding: 7px 7px;
+    padding: 10px 15px;
     border-radius: 4px;
     cursor: pointer; cursor: hand;
   }
@@ -30,13 +30,14 @@ label {
     cursor: auto;
   }
   table{
+    margin-top: 30px;
     border-collapse: collapse; /* Los bordes de la tabla se pegarán (mejor aspecto) */
     text-align: center;
   }
   h4 {
     color: black;
     text-align: center;
-    margin-top: 15px;
+    margin-top: 25px;
     font-family: Arial;
     font-weight: bold;
   }
@@ -51,3 +52,32 @@ label {
       display: table;
       clear: both;
   }
+
+  .listar {
+    font-size: 1.3em;
+  }  
+  .blanco{
+    color: white;
+  }
+  .crear{
+    margin-top:30px;
+  }
+  /* Green */
+  .button1 {
+    background-color: #4CAF50;
+    font-size: 12px;
+    padding: 10px 24px;
+    border-radius: 8px;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+
+  } 
+  /* Blue */
+  .button2 {background-color: rgb(0, 127, 186);}
+  /* Red */ 
+  .button3 {
+    background-color: #f44336;
+    margin-left: 5px;
+    padding: 5px 7px;
+  } 
+  .button4 {background-color: #e7e7e7; color: black;} /* Gray */ 
+  .button5 {background-color: #555555;} /* Black */

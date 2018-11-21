@@ -1,11 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 import { FrontendService }  from '../frontend.service';
 import { Actividad } from '../actividad';
 import { ObjetoDeNickYEstado } from '../objetoDeNickYEstado';
 import { UbicacionGPS } from '../ubicacionGPS';
 import {LocalStorage} from '@ngx-pwa/local-storage';
+import { AppRoutingModule } from '../app-routing.module';
+
 
 @Component({
   selector: 'app-editar-actividad',
@@ -29,6 +31,7 @@ export class EditarActividadComponent implements OnInit {
   constructor(
     protected localStorage: LocalStorage,
     private route: ActivatedRoute,
+    private router: Router,
     private frontendService: FrontendService,
     private location: Location
   ) { }
@@ -67,7 +70,9 @@ export class EditarActividadComponent implements OnInit {
   }
 
   goBack(): void {
-    this.location.back();
+    //this.location.back();
+    this.router.navigate(['/menuPrincipal']);
+    
   }
 
 }

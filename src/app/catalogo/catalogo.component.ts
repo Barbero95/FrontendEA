@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 import {LocalStorage} from '@ngx-pwa/local-storage';
 
@@ -21,6 +21,7 @@ export class CatalogoComponent implements OnInit {
   constructor(
     protected localStorage: LocalStorage,
     private route: ActivatedRoute,
+    private router: Router,
     private frontendService: FrontendService,
     private location: Location ) { }
 
@@ -60,6 +61,7 @@ export class CatalogoComponent implements OnInit {
   }
 
 goBack(): void {
-  this.location.back();
+  //this.location.back();
+  this.router.navigate(['/menuPrincipal']);
 }
 }

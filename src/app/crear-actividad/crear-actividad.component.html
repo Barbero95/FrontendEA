@@ -1,38 +1,38 @@
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<h4>Crear Actividad:</h4>
+  <table align="center">
+    <tr>
+      <th>Titulo:</th> 
+      <td><input [(ngModel)] = "tituloAdd"/></td>           
+  </tr>
+  <tr><td></td><td><div *ngIf="alert2" style="color:#FF0000">Debes añadir un título.</div></td></tr>
+  <tr>
+    <th>Descripción:</th> 
+    <td><input [(ngModel)] = "descripcionAdd"/></td>           
+  </tr>
+  <tr><td></td><td><div *ngIf="alert3" style="color:#FF0000">Debes añadir una descripción.</div></td></tr>
+  <tr>
+    <th>Tags:</th>
+    <td>
+      <input [(ngModel)] = "variable"/>
+    </td>
+    <td><button class="button2" (click)="addTag()">Añadir</button></td>
+  </tr>
+  <tr><td></td><td><div *ngIf="alert4" style="color:#FF0000">Debes añadir un Tag.</div></td></tr>
+  <tr>
+    <th>Tags añadidos:</th>
+    <td>
+      <tr *ngFor="let item of tagsAdd">
+        <h1 class="blanco">-</h1>
+        <td class="listar">- {{item}}</td>
+        <button class="button3" (click)="deleteTag(item)">Eliminar</button>
+      </tr>
+    </td>
+  </tr>
+</table>
+<form align="center" class="crear">
+  <button class="button1" (click)="postActivity()">Crear</button>
+</form>
 
-
-    <h4>Crear Actividad:</h4>
-    <table align="center">
-      <tr>
-          <th>Titulo:</th> 
-          <td><input [(ngModel)] = "tituloAdd"/></td>           
-      </tr>
-      <tr><td></td><td><div *ngIf="alert2" style="color:#FF0000">Debes añadir un título.</div></td></tr>
-      <tr>
-        <th>Descripción:</th> 
-        <td><input [(ngModel)] = "descripcionAdd"/></td>           
-      </tr>
-      <tr><td></td><td><div *ngIf="alert3" style="color:#FF0000">Debes añadir una descripción.</div></td></tr>
-      <tr>
-        <th>Tags:</th>
-        <td>
-          <input [(ngModel)] = "variable"/>
-        </td>
-        <td><button (click)="addTag()">Añadir</button></td>
-      </tr>
-      <tr><td></td><td><div *ngIf="alert4" style="color:#FF0000">Debes añadir un Tag.</div></td></tr>
-      <tr>
-        <th>Tags añadidos:</th>
-        <td>
-          <tr *ngFor="let item of tagsAdd">
-            <td>- {{item}}</td>
-            <button (click)="deleteTag(item)">Eliminar</button>
-          </tr>
-        </td>
-      </tr>
-    </table>
-
-<button (click)="postActivity()">Crear</button><br>
 
 <div *ngIf="alert1">
   <div class="alert alert-danger" role="alert">
@@ -41,4 +41,3 @@
 </div>
 
 <!--<button (click)="goBack()">go back</button>-->
-

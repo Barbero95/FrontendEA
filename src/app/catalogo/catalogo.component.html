@@ -1,32 +1,22 @@
-<!--
-<div>
-  <label>Crear Actividad:
-    <p></p>
-    <div><span>Titular: </span>{{Actividad.Titular}}</div>
-    <div><span>Descripcion: </span>{{Actividad.Descripcion}}</div>
-    <div><span>Estrellas: </span>{{Actividad.Estrellas}}</div>
-    <div><span>Tags: </span>{{Actividad.Tags}}</div>
-    <div><span>Clientes: </span>{{Actividad.Clientes}}</div>
-  </label>
-</div>
-
-<button (click)="sendUser()">Recibir lista de actividades</button><br>
--->
-<table style="width:75%"> Actividades
+<h2>Catalogo</h2>
+<table>
   <tr>
     <th>Titulo</th>
     <th>Descripción</th>
     <th>Tags</th>
+    <th>Opciones</th>
   </tr>
   <tr *ngFor="let item of lista">
     <td> {{item.titulo}}</td>
     <td> {{item.descripcion}}</td>
     <td> {{item.tags}}</td>
-   <!-- <button (click)="modificarActivity(item)">Modificar</button>-->
-  <button [routerLink]="['/editarActividad',item.titulo]">Editar</button>
-  <button (click)="eliminarActivity(item)">Eliminar</button>
-    
+    <!-- <button (click)="modificarActivity(item)">Modificar</button>-->
+    <td>
+    <button [routerLink]="['/editarActividad',item.titulo]">Editar</button>
+    <button (click)="eliminarActivity(item)">Eliminar</button>
+    </td>
   </tr>
+  
 </table>
 
 

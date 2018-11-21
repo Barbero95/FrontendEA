@@ -47,7 +47,7 @@ export class MenuPrincipalComponent implements OnInit {
     //this.frontendService.getActividadesGPS().subscribe(data =>  this.listaActividades = data);
 
     //con el post
-    this.busqueda = {latitude: this.latitude,longitude: this.longitude, distance: 10, tag: this.searchTag} 
+    this.busqueda = {latitude: this.latitude,longitude: this.longitude, distance: 155, tag: this.searchTag} 
     this.frontendService.postActividadesGPS(this.busqueda).subscribe(data =>  this.listaActividades = data);
 
     //this.locationInit = true;

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
  
 import { Actividad } from '../actividad';
@@ -25,6 +25,7 @@ export class CrearActividadComponent implements OnInit {
   loc2: number[];
   //geo: {lat:124,lng:124};
   geo: UbicacionGPS;
+  comprobacionDeTitulo: string = "hola mundo";
 
   //Para alertas
   alert1: boolean = false;
@@ -33,11 +34,12 @@ export class CrearActividadComponent implements OnInit {
   alert4: boolean = false;
 
   //GPS
-  latitude: number = 51.678418;
-  longitude: number = 7.809007;
+  latitude: number = 41.27516177211787;
+  longitude: number = 1.9845557212829592;
 
   constructor(
     private route: ActivatedRoute,
+    private router: Router,
     private frontendService: FrontendService,
     private location: Location
   ) {}
@@ -45,17 +47,12 @@ export class CrearActividadComponent implements OnInit {
   ngOnInit() {
     //para saber donde creas la actividad
     this.findMe();
-    //this.loc = {type: 'Point', coordinates: [124,124]}
-    this.obj = {idUser: "11xx11",estado: 0};
-    //[latitude, longitude]
-    this.loc2 = [51.678418, 7.809007];
-    
-    this.geo = {lat:124,lng:124};
   }
 
   //crear actividad
   postActivity(): void{
     this.loc2 = [this.latitude, this.longitude];
+    
     if(this.tituloAdd == ""){this.alert2 = true;}else{this.alert2 = false;}
     if(this.descripcionAdd == ""){this.alert3 = true;}else{this.alert3 = false;}
     if (this.tituloAdd == "" && this.descripcionAdd ==""){
@@ -76,8 +73,15 @@ export class CrearActividadComponent implements OnInit {
         ubicacion:"Barcelona",
         localizacion: this.loc2
       };
-
-      this.frontendService.postActividad(this.actividad).subscribe( act => this.goBack(act), err => console.error('Ops: ' + err.message));
+      
+      this.frontendService.getActividad(this.actividad.titulo).subscribe(act => this.comprobacionDeTitulo = act.titulo , err => console.error('Ops: ' + err.message))
+      console.log(this.comprobacionDeTitulo);
+      if(this.comprobacionDeTitulo == this.actividad.titulo){
+        this.alert1 = true;
+      }else{
+        this.frontendService.postActividad(this.actividad).subscribe( act => this.goBack(act), err => console.error('Ops: ' + err.message));
+      }
+      
     }
     
     //res => { this.jsonActividad = res.json();}
@@ -95,16 +99,13 @@ export class CrearActividadComponent implements OnInit {
   deleteTag(item): void {
     var pos = this.tagsAdd.indexOf(item);
     this.tagsAdd.splice(pos,1);
-    console.log(pos);
+    //console.log(pos);
   }
 
 
   goBack(act): void {
-    if(!act){
-      this.alert1 = true;
-    }else{
-      this.location.back();
-    }
+    //this.location.back();
+    this.router.navigate(['/menuPrincipal']);
   }
 
   findMe() {

@@ -12,11 +12,13 @@
     color: #607D8B;
     font-weight: bold;
   }
+  /*
   input {
     height: 2em;
     font-size: 1em;
     padding-left: .4em;
   }
+  */
   button {
     margin-top: 15px;
     margin-left: 15px;
@@ -36,9 +38,19 @@
     cursor: auto;
   }
 
-  table{
-    border-collapse: collapse; /* Los bordes de la tabla se pegarán (mejor aspecto) */
-    text-align: center;
+  table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  td, th {
+      border: 1px solid #dddddd;
+      text-align: left;
+      padding: 8px;
+  }
+
+  tr:nth-child(even) {
+      background-color: #dddddd;
   }
   h3 {
     color: black;
@@ -64,4 +76,12 @@
       clear: both;
   }
 
+  .search input[type=text] {
+    float: center;
+    padding: 6px;
+    border: none;
+    margin-top: 8px;
+    font-size: 17px;
+    border: 2px solid rgb(95, 86, 86);
+}
   

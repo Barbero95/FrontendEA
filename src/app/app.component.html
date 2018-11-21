@@ -1,12 +1,28 @@
 <div class="topnav">
-    <a class="active" routerLink="/menuPrincipal">MenuPrincipal</a>
-    <a routerLink="/catalogo">Catalogo</a>
-    <a routerLink="/crearActividad">Crear Actividad</a>
-    <a routerLink="/perfil">Perfil</a>
+    <a id="menu" class="active" onclick="myFunction1()" routerLink="/menuPrincipal">MenuPrincipal</a>
+    <a id="cat" onclick="myFunction2()" routerLink="/catalogo">Catalogo</a>
+    <a id="crear" onclick="myFunction3()" routerLink="/crearActividad">Crear Actividad</a>
+    <a id="perf" onclick="myFunction4()" routerLink="/perfil">Perfil</a>
     <a class="log" routerLink="/login">Login</a>
     <a class="log" routerLink="/registrar">Registro</a>
 </div>
 
 <router-outlet></router-outlet>
 <app-messages></app-messages>
+
+
+<script>
+    function myFunction1() {
+        document.getElementById("menu").style.opacity = 0.6;
+    }
+    function myFunction2() {
+        document.getElementById("cat").style.color = "green";
+    }
+    function myFunction3() {
+        document.getElementById("crear").style.opacity = 0.6;
+    }
+    function myFunction4() {
+        document.getElementById("perf").style.opacity = 0.6;
+    }  
+</script>
 

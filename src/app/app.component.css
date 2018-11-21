@@ -71,3 +71,10 @@
       border: 1px solid #ccc;
   }
 }
+.button {
+  opacity: 0.6;
+  transition: 0.3s;
+  display: inline-block;
+  text-decoration: none;
+  cursor: pointer;
+}
