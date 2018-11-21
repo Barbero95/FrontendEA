@@ -12,7 +12,7 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
  
 const routes: Routes = [
-  { path: '', redirectTo: '/menuPrincipal', pathMatch: 'full' },
+  { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: 'crearActividad', component: CrearActividadComponent },
   { path: 'menuPrincipal', component: MenuPrincipalComponent },
   { path: 'catalogo', component: CatalogoComponent },
