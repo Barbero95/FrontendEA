@@ -68,13 +68,6 @@
       padding: 14px;
   }
   .topnav input[type=text] {
-      border: 1px solid #ccc;
+      border: 1px solid #ddd;
   }
-}
-.button {
-  opacity: 0.6;
-  transition: 0.3s;
-  display: inline-block;
-  text-decoration: none;
-  cursor: pointer;
 }

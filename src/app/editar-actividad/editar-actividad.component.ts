@@ -19,7 +19,6 @@ export class EditarActividadComponent implements OnInit {
   actividad: Actividad;
   tituloAdd: string;
   descripcionAdd: string;
-  tagsAdd: string[] = [];
   variable: string = "";
   estrellas: number = 0;
   propietario = "time4time";
@@ -46,7 +45,7 @@ export class EditarActividadComponent implements OnInit {
       descripcion:this.descripcionAdd,
       estrellas:0,
       propietario: "time4time",
-      tags:this.tagsAdd,
+      tags:[""],
       clientes:[],
       ubicacion:"Barcelona",
       localizacion: this.loc2
@@ -71,8 +70,7 @@ export class EditarActividadComponent implements OnInit {
 
   goBack(): void {
     //this.location.back();
-    this.router.navigate(['/menuPrincipal']);
-    
+    this.router.navigate(['/catalogo']);
   }
 
 }

@@ -34,8 +34,8 @@ export class CrearActividadComponent implements OnInit {
   alert4: boolean = false;
 
   //GPS
-  latitude: number = 41.27516177211787;
-  longitude: number = 1.9845557212829592;
+  latitude: number = 41.27530691061249;
+  longitude: number = 1.9866693019866941;
 
   constructor(
     private route: ActivatedRoute,
@@ -117,5 +117,11 @@ export class CrearActividadComponent implements OnInit {
     } else {
       alert("Geolocation is not supported by this browser.");
     }
+  }
+
+  onChooseLocation(event){
+    console.log(event);
+    this.longitude=event.coords.lng;
+    this.latitude=event.coords.lat;
   }
 }

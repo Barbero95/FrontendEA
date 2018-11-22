@@ -1,18 +1,20 @@
+
 <!--
 <div class="topnav">
     <a id="menu" class="active" (click)="myFunction1()">MenuPrincipal</a>
-    <a id="cat" (click)="myFunction2()">Catalogo</a>
+    <a id="cat" (click)="myFunction2()" routerLink="/catalogo">Catalogo</a>
     <a id="crear" (click)="myFunction3()" >Crear Actividad</a>
     <a id="perf" (click)="myFunction4()" >Perfil</a>
     <a class="log" routerLink="/login">Login</a>
     <a class="log" routerLink="/registrar">Registro</a>
 </div>
 -->
+
 <div class="topnav">
-    <a id="menu" class="active" onclick="myFunction1()" routerLink="/menuPrincipal">MenuPrincipal</a>
-    <a id="cat" onclick="myFunction2()" routerLink="/catalogo">Catalogo</a>
-    <a id="crear" onclick="myFunction3()" routerLink="/crearActividad">Crear Actividad</a>
-    <a id="perf" onclick="myFunction4()" routerLink="/perfil">Perfil</a>
+    <a id="menu" class="active" (click)="myFunction(1)" routerLink="/menuPrincipal">MenuPrincipal</a>
+    <a  id="cat" (click)="myFunction(2)" routerLink="/catalogo">Catalogo</a>
+    <a id="crear" (click)="myFunction(3)" routerLink="/crearActividad">Crear Actividad</a>
+    <a id="perf" (click)="myFunction(4)" routerLink="/perfil">Perfil</a>
     <a class="log" routerLink="/login">Login</a>
     <a class="log" routerLink="/registrar">Registro</a>
 </div>

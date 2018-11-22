@@ -1,16 +1,4 @@
-/* HeroDetailComponent's private CSS styles */
-label {
-    display: inline-block;
-    width: 15em;
-    margin: 2em 0;
-    color: #607D8B;
-    font-weight: bold;
-  }
-  input {
-    height: 2em;
-    font-size: 1em;
-    padding-left: .4em;
-  }
+
   button {
     font-family: Arial;
     background-color: #eee;
@@ -27,43 +15,57 @@ label {
     color: #ccc;
     cursor: auto;
   }
-  nav a {
-    padding: 5px 10px;
-    text-decoration: none;
-    margin-top: 10px;
-    margin-right: 7px;
-    display: inline-block;
-    background-color: #eee;
-    border-radius: 4px;
-  }
-  nav a:visited, a:link {
-    color: #607d8b;
-  }
-  nav a:hover {
-    color: #039be5;
-    background-color: #cfd8dc;
-  }
-  nav a.active {
-    color: #039be5;
-  }
+
   table{
+    width: 300px;
     border-collapse: collapse; /* Los bordes de la tabla se pegarán (mejor aspecto) */
+    margin-top: 30px;
+    border-collapse: collapse; /* Los bordes de la tabla se pegarán (mejor aspecto) */
+    font-size: 18px;
   }
-  /*
-  td{
-    border: 1px solid black;
-  }
-  */
-  table {
-    width: 100%;
-  }
+
 
   .mat-form-field {
       font-size: 14px;
       width: 100%;
   }
-
-  td,
-  th {
-      width: 25%;
+  .column {
+    float: left;
+    width: 50%;
   }
+  /* Clear floats after the columns */
+  .row:after {
+      content: "";
+      display: table;
+      clear: both;
+  }
+  .listar {
+    font-size: 1.3em;
+  }  
+  .blanco{
+    color: white;
+  }
+  .crear{
+    margin-top:30px;
+  }
+  .foto{
+    margin-right: 30px;
+  }
+  table{
+    margin-top: 30px;
+    border-collapse: collapse; /* Los bordes de la tabla se pegarán (mejor aspecto) */
+  }
+  h4 {
+    color: black;
+    text-align: center;
+    margin-top: 25px;
+    font-family: Arial;
+    font-weight: bold;
+  }
+  .button1 {
+    margin-top: 30px;
+    background-color: rgb(39, 197, 224);
+    font-size: 12px;
+    padding: 10px 24px;
+    border-radius: 8px;
+  } 

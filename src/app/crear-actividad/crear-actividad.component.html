@@ -29,6 +29,16 @@
     </td>
   </tr>
 </table>
+<div class="mapa" align="center">
+  <agm-map [latitude]="latitude" [longitude]="longitude" [zoom]="15" (mapClick)="onChooseLocation($event)">
+    <agm-marker 
+        [longitude]="longitude"
+        [latitude]="latitude"    
+    ></agm-marker>
+  </agm-map>
+</div>
+
+
 <form align="center" class="crear">
   <button class="button1" (click)="postActivity()">Crear</button>
 </form>

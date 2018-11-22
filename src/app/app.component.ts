@@ -12,20 +12,26 @@ export class AppComponent {
     private router: Router
   ) {}
 
-  myFunction1() {
-    this.router.navigate(['/menuPrincipal']);
-    document.getElementById("menu").style.backgroundColor = "black";
+  myFunction(number) {
+    
+    if(number==1){
+      document.getElementById("cat").style.backgroundColor="";
+      document.getElementById("cat").style.backgroundColor = "#ddd";
+      document.getElementById("crear").style.backgroundColor = "#ddd";
+      document.getElementById("perf").style.backgroundColor = "#ddd";
+    }else if (number==2){
+      document.getElementById("cat").style.backgroundColor = "rgba(107, 98, 98, 0.603)";
+      document.getElementById("crear").style.backgroundColor = "#ddd";
+      document.getElementById("perf").style.backgroundColor = "#ddd";
+    }else if (number==3){
+      document.getElementById("cat").style.backgroundColor = "#ddd";
+      document.getElementById("crear").style.backgroundColor = "rgba(107, 98, 98, 0.603)";
+      document.getElementById("perf").style.backgroundColor = "#ddd";
+    }else if (number==4){
+      document.getElementById("cat").style.backgroundColor = "#ddd";
+      document.getElementById("crear").style.backgroundColor = "#ddd";
+      document.getElementById("perf").style.backgroundColor = "rgba(107, 98, 98, 0.603)";
+    }
+    //this.router.navigate(['/menuPrincipal']);
   }
-  myFunction2() {
-    this.router.navigate(['/catalogo']);
-    document.getElementById("cat").style.backgroundColor = "black";
-  }
-  myFunction3() {
-    this.router.navigate(['/crearActividad']);
-    document.getElementById("crear").style.backgroundColor = "black";
-  }
-  myFunction4() {
-    this.router.navigate(['/perfil']);
-    document.getElementById("perf").style.backgroundColor= "black";
-  } 
 }

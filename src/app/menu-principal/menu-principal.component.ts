@@ -14,8 +14,10 @@ import { Busqueda } from '../busqueda';
   styleUrls: ['./menu-principal.component.css']
 })
 export class MenuPrincipalComponent implements OnInit {
-  latitude: number = 51.678418;
-  longitude: number = 7.809007;
+  //GPS
+  latitude: number = 41.27530691061249;
+  longitude: number = 1.9866693019866941;
+  //GPS
   actividad: Actividad;
   searchTag: string;
   listaActividades: Actividad[];
