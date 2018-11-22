@@ -3,6 +3,8 @@ import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 import {LocalStorage} from '@ngx-pwa/local-storage';
 
+import {MatCardModule} from '@angular/material/card';
+
 import { FrontendService } from '../frontend.service';
 import { Actividad } from '../actividad';
 import { ObjetoDeNickYEstado } from '../objetoDeNickYEstado';
@@ -26,7 +28,7 @@ export class CatalogoComponent implements OnInit {
     private location: Location ) { }
 
   ngOnInit(): void{
-    this.actividad = {titulo:null, descripcion:null, estrellas:0, propietario: "time4time", tags:null,clientes:[],_id:0,__v:0, ubicacion: null, location:null};
+    this.actividad = {titulo:null, descripcion:null, estrellas:0, propietario: 'time4time', tags:null,clientes:[],_id:0,__v:0, ubicacion: null, location:null};
     this.frontendService.getActividadesPropietario(this.actividad).subscribe(data =>  this.lista = data);
     this.localStorage.setItem('titulo',this.actividad.titulo).subscribe(() => {});
 
