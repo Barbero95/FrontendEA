@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 import { FrontendService }  from '../frontend.service';
 import { Usuario } from '../usuario';
@@ -18,6 +18,7 @@ export class RegisterComponent implements OnInit {
 
   constructor(    
     private route: ActivatedRoute,
+    private router: Router,
     private frontendService: FrontendService,
     private location: Location) { }
 
@@ -28,7 +29,7 @@ export class RegisterComponent implements OnInit {
 
   goSave(): void{
     
-    this.frontendService.postUsuario(this.usuario).subscribe(() => this.goBack());
+    this.frontendService.postUsuario(this.usuario).subscribe(data=> this.router.navigate(['/menuPrincipal']));
     //this.location.back;
   }
 

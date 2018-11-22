@@ -58,7 +58,13 @@ export class FrontendService {
  ;
   }
 
-
+  validarUser(usuario: Usuario): Observable<Usuario> {
+    const url = `http://localhost:3000/users/validacion`;
+    return this.http.post<String>(url, usuario, httpOptions).pipe(
+      tap((usuario: Usuario) => this.log(`Validación del usuario=${usuario.nombre}`)),
+      catchError(this.handleError<Actividad>('Validación errónea'))
+    );
+  }
 
   /*POST: Crear usuario o crear actividad*/
   //////// Save methods //////////
