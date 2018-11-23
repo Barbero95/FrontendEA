@@ -14,7 +14,13 @@ export class RegisterComponent implements OnInit {
   usuario: Usuario;
   tagsEdit: string[] = [];
   variable: string;
+  alerta: boolean = false;
+  alertaNombre: boolean = false;
+  alertaNick: boolean = false;
+  alertaApellido: boolean = false;
+  alertaEmail: boolean = false;
 
+  password2: string;
 
   constructor(    
     private route: ActivatedRoute,
@@ -28,9 +34,44 @@ export class RegisterComponent implements OnInit {
   }
 
   goSave(): void{
-    
-    this.frontendService.postUsuario(this.usuario).subscribe(data=> this.router.navigate(['/menuPrincipal']));
+    if(this.usuario.nombre === ""){
+      this.alertaNombre = true;
+    }
+    else{
+    this.alertaNombre = false;}
+
+    if(this.usuario.email === ""){
+      this.alertaEmail= true;
+    }
+    else{
+      this.alertaEmail = false;}
+
+    if(this.usuario.nick === ""){
+      this.alertaNick = true;
+    }
+    else{
+      this.alertaNick = false;}
+
+    if(this.usuario.apellido === ""){
+      this.alertaApellido = true;
+    }
+    else{
+      this.alertaApellido = false;}
+      
+      if(this.usuario.password === "" || this.password2 === ""){
+        this.alerta = true;
+      }
+      else{
+        this.alerta = false;}
+
+    if ( this.password2 === this.usuario.password  && this.alertaApellido == false && this.alertaEmail
+    == false && this.alertaNick == false && this.alertaNombre == false){
+    this.frontendService.postUsuario(this.usuario).subscribe(data=> this.router.navigate(['/login']));
     //this.location.back;
+    }
+    else{
+      this.alerta = true;
+    }
   }
 
   addTag(): void {

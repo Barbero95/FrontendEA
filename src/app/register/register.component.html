@@ -1,27 +1,36 @@
 <div>
-    <label>Editar Perfil:
+    <label>Registrar usuario
       <p></p>
       <table>
           <tr>
               <td>Nick:</td> 
               <td><input [(ngModel)] = "usuario.nick"/></td>           
           </tr>
+          <tr><div *ngIf="alertaNick" style="color:#FF0000">Introduzca un nick.</div></tr>
         <tr>
             <td>Nombre:</td> 
             <td><input [(ngModel)] = "usuario.nombre"/></td>           
         </tr>
+        <tr><div *ngIf="alertaNombre" style="color:#FF0000">Introduzca un nombre.</div></tr>
         <tr>
           <td>Apellido:</td> 
           <td><input [(ngModel)] = "usuario.apellido"/></td>           
         </tr>
+        <tr><div *ngIf="alertaApellido" style="color:#FF0000">Introduzca un apellido.</div></tr>
         <tr>
-          <td>email:</td> 
+          <td>Email:</td> 
           <td><input [(ngModel)] = "usuario.email"/></td>           
         </tr>
+        <tr><div *ngIf="alertaEmail" style="color:#FF0000">Introduzca un email.</div></tr>
         <tr>
-          <td>password:</td> 
+          <td>Password:</td> 
           <td><input [(ngModel)] = "usuario.password"/></td>           
         </tr>
+        <tr>
+          <td>Repetir password:</td> 
+          <td><input [(ngModel)] = "password2"/></td>           
+      </tr>
+      <tr><div *ngIf="alerta" style="color:#FF0000">La contraseña no coincide.</div></tr>
         <tr>
           <td>Tags:</td>
           <td>
