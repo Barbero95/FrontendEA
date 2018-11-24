@@ -141,6 +141,14 @@ export class FrontendService {
     );
   }
 
+  deletePerfil(usuario: Usuario): Observable<any> {
+    const url = `${this.usuariosUrl}/borrar`;
+    return this.http.delete(url,httpOptions).pipe(
+      tap(_ => this.log(`borrado de perfil`)),
+      catchError(this.handleError<any>('Error al borrar la actividad'))
+    );
+  }
+
 
   //No borrar
   private handleError<T> (operation = 'operation', result?: T) {
