@@ -14,6 +14,7 @@ export class LoginComponent implements OnInit {
   usuario: Usuario;
   username:string;
   password:string;
+  contra:string;
 
   constructor(
     private route: ActivatedRoute,
@@ -28,15 +29,14 @@ export class LoginComponent implements OnInit {
 
   //crear actividad
   getLogin(): void{
-    var pw2 = new String(this.password);
     this.usuario = {nombre:"",apellido:"",nick:this.username,email:"",estrellas:0,tags:[],imagen:"",password:this.password,actividadesPropietario:[], actividadesCliente:[],_id:0,__v:0}
     this.frontendService.validarUser(this.usuario).subscribe( 
-      user => this.usuario= user
+      user => this.usuario = user
       );
-      
-      var pw1 = new String(this.usuario.password);
-      var pw2 = new String(this.password);
-      if (JSON.stringify(pw2) === JSON.stringify(pw1)) {
+
+      //Con esto es suficiente para validar debido a que, si no se encuentra usuario, el resultado sería null
+      //Un comparador de valores aquí sería más ineficiente y mucho más complejo
+      if (this.usuario.password!=null) {
         this.router.navigate(['/menuPrincipal']);
       }
      
