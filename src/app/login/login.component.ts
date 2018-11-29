@@ -27,25 +27,30 @@ export class LoginComponent implements OnInit {
  
   }
 
-  //crear actividad
+  //comprobar usuario y contraseña
   getLogin(): void{
-    this.usuario = {nombre:"",apellido:"",nick:this.username,email:"",estrellas:0,tags:[],imagen:"",password:this.password,actividadesPropietario:[], actividadesCliente:[],_id:0,__v:0}
+    this.usuario = {nombre:"",apellido:"",nick:this.username,email:"",estrellas:0,tags:[],imagen:"",password:this.password,actividadesPropietario:[], actividadesCliente:[],contadorEstrellasUsuario:0,horasUsuario:0,_id:0,__v:0}
     this.frontendService.validarUser(this.usuario).subscribe( 
-      user => this.usuario = user
+      data => {
+        if (data != null){
+          this.goMenuPrincipal(data);
+        }else{
+          //alerta usuari o contrasenya no existe
+        }
+      }
       );
 
-      //Con esto es suficiente para validar debido a que, si no se encuentra usuario, el resultado sería null
-      //Un comparador de valores aquí sería más ineficiente y mucho más complejo
-      if (this.usuario.password!=null) {
-        this.router.navigate(['/menuPrincipal']);
-      }
-     
+  }
+  goMenuPrincipal(data): void{
+      this.usuario = data;
+      
+      this.router.navigate(['/menuPrincipal']);
   }
 
 
   goBack(): void {
     
-      this.location.back();
+    this.router.navigate(['/login']);
     
   }
 }

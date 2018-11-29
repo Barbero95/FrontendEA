@@ -71,7 +71,9 @@ export class CrearActividadComponent implements OnInit {
         tags:this.tagsAdd,
         clientes:[],
         ubicacion:"Barcelona",
-        localizacion: this.loc2
+        localizacion: this.loc2,
+        horasActividad:0,
+        contadorEstrellasActividad:0
       };
       
       this.frontendService.getActividad(this.actividad.titulo).subscribe(act => this.comprobacionDeTitulo = act.titulo , err => console.error('Ops: ' + err.message))

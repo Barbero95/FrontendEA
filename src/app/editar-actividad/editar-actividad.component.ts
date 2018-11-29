@@ -48,7 +48,9 @@ export class EditarActividadComponent implements OnInit {
       tags:[""],
       clientes:[],
       ubicacion:"Barcelona",
-      localizacion: this.loc2
+      localizacion: this.loc2,
+      horasActividad:0,
+      contadorEstrellasActividad:0
     };
     
    this.frontendService.getActividadDePropietario(this.actividad).subscribe(data => this.actividad = data);

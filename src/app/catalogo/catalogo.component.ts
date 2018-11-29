@@ -36,7 +36,9 @@ export class CatalogoComponent implements OnInit {
       _id:"",
       __v:0,
       ubicacion: "", 
-      localizacion:[]}
+      localizacion:[],
+      horasActividad:0,
+      contadorEstrellasActividad:0}
     //this.frontendService.getActividadesPropietario(this.actividad).subscribe(listaAct => this.lista = listaAct);
     this.frontendService.getActividadesPropietario(this.actividad).subscribe(data =>  this.lista = data);
     this.localStorage.setItem('titulo',this.actividad.titulo).subscribe(() => {});

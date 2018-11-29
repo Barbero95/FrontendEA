@@ -12,6 +12,8 @@ export class Actividad {
     clientes: ObjetoDeNickYEstado[];
     localizacion: number[];
     ubicacion: string;
+    horasActividad: number;
+    contadorEstrellasActividad: number;
     //location: UbicacionGPS;
     
     //geo: UbicacionGPS;

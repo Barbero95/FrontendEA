@@ -23,7 +23,7 @@ export class EditarPerfilComponent implements OnInit {
     private location: Location) { }
 
   ngOnInit() {
-    this.usuario = {nombre:"",apellido:"",nick:this.nick,email:"",estrellas:0,tags: this.tagsEdit,imagen:"",password:"",actividadesPropietario:[], actividadesCliente:[],_id:0,__v:0}
+    this.usuario = {nombre:"",apellido:"",nick:this.nick,email:"",estrellas:0,tags: this.tagsEdit,imagen:"",password:"",actividadesPropietario:[], actividadesCliente:[],_id:0,__v:0,contadorEstrellasUsuario:0,horasUsuario:0}
     this.frontendService.getUsuario(this.usuario.nick).subscribe(user => this.usuario = user);
   }
 

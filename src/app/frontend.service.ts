@@ -59,10 +59,10 @@ export class FrontendService {
   }
 
   validarUser(usuario: Usuario): Observable<Usuario> {
-    const url = `http://localhost:3000/users/validacion`;
+    const url = `${this.usuariosUrl}/validacion`;
     return this.http.post<String>(url, usuario, httpOptions).pipe(
       tap((usuario: Usuario) => this.log(`Validación del usuario=${usuario.nombre}`)),
-      catchError(this.handleError<Actividad>('Validación errónea'))
+      catchError(this.handleError<Usuario>('Validación errónea'))
     );
   }
 

@@ -29,7 +29,7 @@ export class RegisterComponent implements OnInit {
     private location: Location) { }
 
   ngOnInit() {
-    this.usuario = {nombre:"",apellido:"",nick:"",email:"",estrellas:0,tags: this.tagsEdit,imagen:"",password:"",actividadesPropietario:[], actividadesCliente:[],_id:0,__v:0}
+    this.usuario = {nombre:"",apellido:"",nick:"",email:"",estrellas:0,contadorEstrellasUsuario:0,horasUsuario:0,tags: this.tagsEdit,imagen:"",password:"",actividadesPropietario:[], actividadesCliente:[],_id:0,__v:0}
     
   }
 
@@ -58,14 +58,15 @@ export class RegisterComponent implements OnInit {
     else{
       this.alertaApellido = false;}
       
-      if(this.usuario.password === "" || this.password2 === ""){
-        this.alerta = true;
-      }
-      else{
-        this.alerta = false;}
+    if(this.usuario.password === "" || this.password2 === ""){
+      this.alerta = true;
+    }
+    else{
+      this.alerta = false;}
 
     if ( this.password2 === this.usuario.password  && this.alertaApellido == false && this.alertaEmail
     == false && this.alertaNick == false && this.alertaNombre == false){
+      console.log(this.usuario.horasUsuario);
     this.frontendService.postUsuario(this.usuario).subscribe(data=> this.router.navigate(['/login']));
     //this.location.back;
     }
@@ -83,6 +84,6 @@ export class RegisterComponent implements OnInit {
   }
 
   goBack(): void {
-    this.location.back();
+    this.router.navigate(['/login']);
   }
 }

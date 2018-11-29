@@ -11,4 +11,6 @@ export class Usuario {
     imagen: string;
     actividadesPropietario: number[];
     actividadesCliente: number[];
+    horasUsuario: number;
+    contadorEstrellasUsuario: number;
 }
